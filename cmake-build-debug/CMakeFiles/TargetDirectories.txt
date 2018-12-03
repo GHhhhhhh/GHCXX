@@ -1,3 +1,3 @@
-C:/Users/GH/CLionProjects/gh_code/cmake-build-debug/CMakeFiles/gh_code.dir
-C:/Users/GH/CLionProjects/gh_code/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/GH/CLionProjects/gh_code/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/78455/Desktop/gh_code/gh_code/cmake-build-debug/CMakeFiles/gh_code.dir
+C:/Users/78455/Desktop/gh_code/gh_code/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/78455/Desktop/gh_code/gh_code/cmake-build-debug/CMakeFiles/rebuild_cache.dir

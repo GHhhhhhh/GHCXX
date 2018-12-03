@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/GH/CLionProjects/gh_code/SwordToOffer/Interview.cpp" "C:/Users/GH/CLionProjects/gh_code/cmake-build-debug/CMakeFiles/gh_code.dir/SwordToOffer/Interview.cpp.obj"
-  "C:/Users/GH/CLionProjects/gh_code/ghlib/gh.cpp" "C:/Users/GH/CLionProjects/gh_code/cmake-build-debug/CMakeFiles/gh_code.dir/ghlib/gh.cpp.obj"
-  "C:/Users/GH/CLionProjects/gh_code/main.cpp" "C:/Users/GH/CLionProjects/gh_code/cmake-build-debug/CMakeFiles/gh_code.dir/main.cpp.obj"
+  "C:/Users/78455/Desktop/gh_code/gh_code/SwordToOffer/Interview.cpp" "C:/Users/78455/Desktop/gh_code/gh_code/cmake-build-debug/CMakeFiles/gh_code.dir/SwordToOffer/Interview.cpp.obj"
+  "C:/Users/78455/Desktop/gh_code/gh_code/ghlib/gh.cpp" "C:/Users/78455/Desktop/gh_code/gh_code/cmake-build-debug/CMakeFiles/gh_code.dir/ghlib/gh.cpp.obj"
+  "C:/Users/78455/Desktop/gh_code/gh_code/main.cpp" "C:/Users/78455/Desktop/gh_code/gh_code/cmake-build-debug/CMakeFiles/gh_code.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

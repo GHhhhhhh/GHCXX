@@ -1,4 +1,4 @@
-ToolSet: 3.20@D:\program\MinGW\MinGW
+ToolSet: 3.20@S:\MinGW\MinGW
 Options: 
 
 Options:
