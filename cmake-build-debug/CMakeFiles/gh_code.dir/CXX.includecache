@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/GH/CLionProjects/gh_code/SwordToOffer/Interview.h
+iostream
+-
+
+C:/Users/GH/CLionProjects/gh_code/ghlib/gh.h
+iostream
+-
+sys/time.h
+-
+fstream
+-
+
+C:/Users/GH/CLionProjects/gh_code/main.cpp
+iostream
+-
+ghlib/gh.h
+C:/Users/GH/CLionProjects/gh_code/ghlib/gh.h
+SwordToOffer/Interview.h
+C:/Users/GH/CLionProjects/gh_code/SwordToOffer/Interview.h
+
