@@ -3,7 +3,7 @@
 #include "SwordToOffer/Interview.h"
 using namespace std;
 int main() {
-    gh::print("hello guest!");
+    gh::print("hello guest! I am iron man!");
     return 0;
 }
 
