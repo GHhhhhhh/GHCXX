@@ -143,10 +143,21 @@ void MergeArray(int *numbers1, int length1, int *numbers2, int length2) {
 BinaryTreeNode* ConstructByFM(int *preorder, int *inorder, int length) {
     if (preorder == nullptr || inorder == nullptr || length <= 0 )
         return nullptr;
-
+    return  ConstructByFMCore(preorder, preorder + length - 1, inorder, preorder + length - 1);
 }
 
 BinaryTreeNode* ConstructByFMCore(int *stratPreorder, int *endPreorder,
                                   int *stratInorder, int *endInorder) {
+    int rootValue = stratPreorder[0];
+    BinaryTreeNode* root = new BinaryTreeNode();
+    root->m_nValue = rootValue;
+    root->m_pLeft = root->m_pRight = nullptr;
+    if (stratPreorder == endPreorder) {
+        if (stratInorder == endInorder && *stratPreorder == *stratInorder)
+            return root;
+        else
+            throw std::exception();
+    }
+
 
 }

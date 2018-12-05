@@ -40,7 +40,7 @@ void ReplaceBlank(char string[], int length);
 
 void MergeArray(int *numbers1, int length1, int *numbers2, int length2);
 
-//面试题7 给前序 中序遍历，给出二叉树
+//面试题7 给前序 中序遍历，给出二叉树 preorder{1,2,4,7,3,5,6,8} inorder{4,7,2,1,5,3,8,6}
 BinaryTreeNode* ConstructByFM(int *preorder, int *inorder, int length);
 
 BinaryTreeNode* ConstructByFMCore(int *stratPreorder, int *endPreorder,
