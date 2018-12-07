@@ -146,18 +146,32 @@ BinaryTreeNode* ConstructByFM(int *preorder, int *inorder, int length) {
     return  ConstructByFMCore(preorder, preorder + length - 1, inorder, preorder + length - 1);
 }
 
-BinaryTreeNode* ConstructByFMCore(int *stratPreorder, int *endPreorder,
-                                  int *stratInorder, int *endInorder) {
-    int rootValue = stratPreorder[0];
+BinaryTreeNode* ConstructByFMCore(int *startPreorder, int *endPreorder,
+                                  int *startInorder, int *endInorder) {
+    int rootValue = startPreorder[0];
     BinaryTreeNode* root = new BinaryTreeNode();
     root->m_nValue = rootValue;
     root->m_pLeft = root->m_pRight = nullptr;
-    if (stratPreorder == endPreorder) {
-        if (stratInorder == endInorder && *stratPreorder == *stratInorder)
+    if (startPreorder == endPreorder) {
+        if (startInorder == endInorder && *startPreorder == *startInorder)
             return root;
         else
             throw std::exception();
     }
-
-
+    int *rootInorder = startPreorder;
+    while (rootInorder <= endInorder && *rootInorder != rootValue )
+        ++rootInorder;
+    if (rootInorder == endInorder && *rootInorder != rootValue)
+        throw std::exception();
+    int leftLength = rootInorder - startInorder;
+    int * leftPreorderEnd = startPreorder + leftLength;
+    if (leftLength > 0) {
+        root->m_pLeft = ConstructByFMCore(leftPreorderEnd + 1, leftPreorderEnd,
+                                            startInorder, rootInorder - 1);
+    }
+    if (leftLength < endPreorder - startPreorder) {
+        root->m_pRight = ConstructByFMCore(leftPreorderEnd + 1, endPreorder,
+                                            rootInorder + 1, endInorder);
+    }
+    return root;
 }
