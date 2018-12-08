@@ -8,6 +8,8 @@
 #include <iostream>
 #include <stack>
 #include <queue>
+#include "../ghlib/gh.h"
+
 namespace swordToOffer {
     struct BinaryTreeNode {
         int m_nValue;
@@ -48,7 +50,8 @@ namespace swordToOffer {
     BinaryTreeNode* ConstructByFMCore(int *stratPreorder, int *endPreorder,
                                       int *stratInorder, int *endInorder);
 //面试题8 用两个栈实现队列
-    template <typename T> class CQueue {
+    template <typename T>
+    class CQueue {
     public:
         void appendTail(const T& node);
         T deleteHead();
@@ -78,7 +81,8 @@ namespace swordToOffer {
     }
 
     //用两个队列实现栈
-    template <typename T> class Cstack {
+    template <typename T>
+    class Cstack {
     public:
         void push (const T& node);
         T pop();
@@ -95,14 +99,15 @@ namespace swordToOffer {
 
     template<typename T>
     T Cstack<T>::pop() {
-        if (queue2.empty()) {
-            while (!queue1.empty()) {
-                queue2.push(queue1.front());
-                queue1.pop();
-            }
+        if (queue1.empty())
+            gh::print("queue empty");
+        while (queue1.size() > 1) {
+            queue2.push(queue1.front());
+            queue1.pop();
         }
-        T head = queue2.front();
-        queue2.pop();
+        T head = queue1.front();
+        queue1.pop();
+        queue1.swap(queue2);
         return head;
     }
 }

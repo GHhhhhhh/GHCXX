@@ -12,15 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c950fa4f-2ea5-4055-8d0d-1f8b73ac3ac7" name="Default Changelist" comment="add &quot;hello guest&quot;">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SwordToOffer/Interview.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SwordToOffer/Interview.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SwordToOffer/Interview.h" beforeDir="false" afterPath="$PROJECT_DIR$/SwordToOffer/Interview.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gh_code.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gh_code.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gh_code.dir/SwordToOffer/Interview.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gh_code.dir/SwordToOffer/Interview.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gh_code.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gh_code.dir/main.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gh_code.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gh_code.dir/objects.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/gh_code.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/gh_code.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -70,8 +62,8 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+            <state relative-caret-position="216">
+              <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -82,8 +74,8 @@
       <file leaf-file-name="Interview.h" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SwordToOffer/Interview.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="104" column="20" selection-start-line="104" selection-start-column="20" selection-end-line="104" selection-end-column="20" />
+            <state relative-caret-position="-328">
+              <caret line="53" column="4" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="4" />
               <folding>
                 <element signature="e#96#115#0" expanded="true" />
                 <element signature="e#1412#1424#0" expanded="true" />
@@ -92,8 +84,11 @@
                 <element signature="e#1707#1719#0" expanded="true" />
                 <element signature="e#1725#1964#0" />
                 <element signature="e#2121#2133#0" expanded="true" />
+                <element signature="e#2134#2163#1" />
                 <element signature="e#2307#2319#0" expanded="true" />
+                <element signature="e#2299#2368#0" />
                 <element signature="e#2382#2394#0" expanded="true" />
+                <element signature="e#2374#2449#0" />
               </folding>
             </state>
           </provider>
@@ -183,8 +178,8 @@
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-29" />
-    <option name="y" value="192" />
+    <option name="x" value="-73" />
+    <option name="y" value="164" />
     <option name="width" value="1750" />
     <option name="height" value="900" />
   </component>
@@ -277,7 +272,7 @@
       <workItem from="1543413212169" duration="2719000" />
       <workItem from="1543496799007" duration="4212000" />
       <workItem from="1543826814493" duration="16182000" />
-      <workItem from="1544246592964" duration="2399000" />
+      <workItem from="1544246592964" duration="3957000" />
     </task>
     <task id="LOCAL-00001" summary="add &quot;hello guest&quot;">
       <created>1543826990748</created>
@@ -297,10 +292,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41759000" />
+    <option name="totallyTimeSpent" value="43317000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-29" y="192" width="1750" height="900" extended-state="0" />
+    <frame x="-73" y="164" width="1750" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.23656543" />
@@ -453,8 +448,11 @@
             <element signature="e#1707#1719#0" expanded="true" />
             <element signature="e#1725#1964#0" />
             <element signature="e#2121#2133#0" expanded="true" />
+            <element signature="e#2134#2163#1" />
             <element signature="e#2307#2319#0" expanded="true" />
+            <element signature="e#2299#2368#0" />
             <element signature="e#2382#2394#0" expanded="true" />
+            <element signature="e#2374#2449#0" />
           </folding>
         </state>
       </provider>
@@ -561,8 +559,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+        <state relative-caret-position="216">
+          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
@@ -571,8 +569,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SwordToOffer/Interview.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="104" column="20" selection-start-line="104" selection-start-column="20" selection-end-line="104" selection-end-column="20" />
+        <state relative-caret-position="-328">
+          <caret line="53" column="4" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="4" />
           <folding>
             <element signature="e#96#115#0" expanded="true" />
             <element signature="e#1412#1424#0" expanded="true" />
@@ -581,8 +579,11 @@
             <element signature="e#1707#1719#0" expanded="true" />
             <element signature="e#1725#1964#0" />
             <element signature="e#2121#2133#0" expanded="true" />
+            <element signature="e#2134#2163#1" />
             <element signature="e#2307#2319#0" expanded="true" />
+            <element signature="e#2299#2368#0" />
             <element signature="e#2382#2394#0" expanded="true" />
+            <element signature="e#2374#2449#0" />
           </folding>
         </state>
       </provider>

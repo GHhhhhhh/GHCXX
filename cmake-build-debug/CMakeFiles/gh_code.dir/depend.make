@@ -3,6 +3,7 @@
 
 CMakeFiles/gh_code.dir/SwordToOffer/Interview.cpp.obj: ../SwordToOffer/Interview.cpp
 CMakeFiles/gh_code.dir/SwordToOffer/Interview.cpp.obj: ../SwordToOffer/Interview.h
+CMakeFiles/gh_code.dir/SwordToOffer/Interview.cpp.obj: ../ghlib/gh.h
 
 CMakeFiles/gh_code.dir/ghlib/gh.cpp.obj: ../ghlib/gh.cpp
 CMakeFiles/gh_code.dir/ghlib/gh.cpp.obj: ../ghlib/gh.h
