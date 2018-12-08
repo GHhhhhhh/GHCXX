@@ -12,8 +12,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c950fa4f-2ea5-4055-8d0d-1f8b73ac3ac7" name="Default Changelist" comment="add &quot;hello guest&quot;">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SwordToOffer/Interview.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SwordToOffer/Interview.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SwordToOffer/Interview.h" beforeDir="false" afterPath="$PROJECT_DIR$/SwordToOffer/Interview.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gh_code.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gh_code.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gh_code.dir/SwordToOffer/Interview.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gh_code.dir/SwordToOffer/Interview.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gh_code.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gh_code.dir/main.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gh_code.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gh_code.dir/objects.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/gh_code.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/gh_code.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -63,8 +70,8 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+            <state relative-caret-position="336">
+              <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -75,8 +82,28 @@
       <file leaf-file-name="Interview.h" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SwordToOffer/Interview.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="531">
-              <caret line="42" column="3" selection-start-line="42" selection-start-column="3" selection-end-line="42" selection-end-column="3" />
+            <state relative-caret-position="427">
+              <caret line="104" column="20" selection-start-line="104" selection-start-column="20" selection-end-line="104" selection-end-column="20" />
+              <folding>
+                <element signature="e#96#115#0" expanded="true" />
+                <element signature="e#1412#1424#0" expanded="true" />
+                <element signature="e#1425#1454#1" />
+                <element signature="e#1626#1638#0" expanded="true" />
+                <element signature="e#1707#1719#0" expanded="true" />
+                <element signature="e#1725#1964#0" />
+                <element signature="e#2121#2133#0" expanded="true" />
+                <element signature="e#2307#2319#0" expanded="true" />
+                <element signature="e#2382#2394#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="stl_queue.h" pinned="false" current-in-tab="false">
+        <entry file="file://S:/MinGW/MinGW/lib/gcc/mingw32/4.8.1/include/c++/bits/stl_queue.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="214">
+              <caret line="237" column="6" selection-start-line="237" selection-start-column="6" selection-end-line="237" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -84,17 +111,18 @@
       <file leaf-file-name="Interview.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SwordToOffer/Interview.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1054">
-              <caret line="176" selection-start-line="176" selection-end-line="176" />
+            <state relative-caret-position="486">
+              <caret line="179" selection-start-line="179" selection-end-line="179" />
               <folding>
                 <element signature="e#63#667#0" />
-                <element signature="e#669#1229#0" />
-                <element signature="e#1231#1519#0" />
-                <element signature="e#1521#1976#0" />
-                <element signature="e#1978#2412#0" />
-                <element signature="e#2414#3155#0" />
-                <element signature="e#3157#3781#0" />
-                <element signature="e#3783#3949#0" />
+                <element signature="e#727#1287#0" />
+                <element signature="e#1289#1577#0" />
+                <element signature="e#1579#2034#0" />
+                <element signature="e#2036#2470#0" />
+                <element signature="e#2472#3213#0" />
+                <element signature="e#3215#3839#0" />
+                <element signature="e#3841#4102#0" />
+                <element signature="e#4104#5353#0" />
               </folding>
             </state>
           </provider>
@@ -103,7 +131,7 @@
       <file leaf-file-name="exception" pinned="false" current-in-tab="false">
         <entry file="file://S:/MinGW/MinGW/lib/gcc/mingw32/4.8.1/include/c++/exception">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
+            <state relative-caret-position="1488">
               <caret line="62" column="4" selection-start-line="62" selection-start-column="4" selection-end-line="62" selection-end-column="4" />
             </state>
           </provider>
@@ -138,8 +166,8 @@
         <option value="$PROJECT_DIR$/gh.cpp" />
         <option value="$PROJECT_DIR$/gh.h" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/main.cpp" />
         <option value="$PROJECT_DIR$/SwordToOffer/Interview.cpp" />
+        <option value="$PROJECT_DIR$/main.cpp" />
         <option value="$PROJECT_DIR$/SwordToOffer/Interview.h" />
       </list>
     </option>
@@ -154,11 +182,11 @@
     <packageJsonPaths />
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="187" />
-    <option name="y" value="135" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-29" />
+    <option name="y" value="192" />
     <option name="width" value="1750" />
-    <option name="height" value="872" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -248,7 +276,8 @@
       <workItem from="1543324868509" duration="5879000" />
       <workItem from="1543413212169" duration="2719000" />
       <workItem from="1543496799007" duration="4212000" />
-      <workItem from="1543826814493" duration="15614000" />
+      <workItem from="1543826814493" duration="16182000" />
+      <workItem from="1544246592964" duration="2399000" />
     </task>
     <task id="LOCAL-00001" summary="add &quot;hello guest&quot;">
       <created>1543826990748</created>
@@ -268,19 +297,19 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38792000" />
+    <option name="totallyTimeSpent" value="41759000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="903" y="2" width="1750" height="955" extended-state="0" />
+    <frame x="-29" y="192" width="1750" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.23656543" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="8" weight="0.32715377" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.2704471" />
       <window_info anchor="bottom" id="CMake" order="12" weight="0.32824427" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.36341757" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.2704471" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32457292" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -289,32 +318,32 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
     </layout>
     <layout-to-restore>
-      <window_info anchor="bottom" id="CMake" order="12" weight="0.32866043" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23659517" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.29886687" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.3286119" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Messages" order="8" weight="0.3286119" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="CMake" order="12" weight="0.32866043" />
       <window_info id="Favorites" order="2" side_tool="true" />
     </layout-to-restore>
   </component>
@@ -372,6 +401,66 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SwordToOffer/Interview.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4224">
+          <caret line="176" selection-start-line="176" selection-end-line="176" />
+          <folding>
+            <element signature="e#63#667#0" />
+            <element signature="e#727#1287#0" />
+            <element signature="e#1289#1577#0" />
+            <element signature="e#1579#2034#0" />
+            <element signature="e#2036#2470#0" />
+            <element signature="e#2472#3213#0" />
+            <element signature="e#3215#3839#0" />
+            <element signature="e#3841#4102#0" />
+            <element signature="e#4104#5353#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://S:/MinGW/MinGW/lib/gcc/mingw32/4.8.1/include/c++/exception">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1488">
+          <caret line="62" column="4" selection-start-line="62" selection-start-column="4" selection-end-line="62" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="36" selection-start-column="36" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SwordToOffer/Interview.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1008">
+          <caret line="42" column="3" selection-start-line="42" selection-start-column="3" selection-end-line="42" selection-end-column="3" />
+          <folding>
+            <element signature="e#96#115#0" expanded="true" />
+            <element signature="e#1412#1424#0" expanded="true" />
+            <element signature="e#1425#1454#1" />
+            <element signature="e#1626#1638#0" expanded="true" />
+            <element signature="e#1707#1719#0" expanded="true" />
+            <element signature="e#1725#1964#0" />
+            <element signature="e#2121#2133#0" expanded="true" />
+            <element signature="e#2307#2319#0" expanded="true" />
+            <element signature="e#2382#2394#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="5" selection-start-line="5" selection-end-line="5" />
           <folding>
@@ -393,13 +482,14 @@
           <caret line="149" column="71" lean-forward="true" selection-start-line="149" selection-start-column="71" selection-end-line="149" selection-end-column="71" />
           <folding>
             <element signature="e#63#667#0" />
-            <element signature="e#669#1229#0" />
-            <element signature="e#1231#1519#0" />
-            <element signature="e#1521#1976#0" />
-            <element signature="e#1978#2412#0" />
-            <element signature="e#2414#3155#0" />
-            <element signature="e#3157#3781#0" />
-            <element signature="e#3783#3949#0" />
+            <element signature="e#727#1287#0" />
+            <element signature="e#1289#1577#0" />
+            <element signature="e#1579#2034#0" />
+            <element signature="e#2036#2470#0" />
+            <element signature="e#2472#3213#0" />
+            <element signature="e#3215#3839#0" />
+            <element signature="e#3841#4102#0" />
+            <element signature="e#4104#5353#0" />
           </folding>
         </state>
       </provider>
@@ -427,7 +517,7 @@
     </entry>
     <entry file="file://S:/MinGW/MinGW/lib/gcc/mingw32/4.8.1/include/c++/exception">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
+        <state relative-caret-position="1488">
           <caret line="62" column="4" selection-start-line="62" selection-start-column="4" selection-end-line="62" selection-end-column="4" />
         </state>
       </provider>
@@ -437,37 +527,63 @@
         <state relative-caret-position="-5289" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/SwordToOffer/Interview.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="179" selection-start-line="179" selection-end-line="179" />
+          <folding>
+            <element signature="e#63#667#0" />
+            <element signature="e#727#1287#0" />
+            <element signature="e#1289#1577#0" />
+            <element signature="e#1579#2034#0" />
+            <element signature="e#2036#2470#0" />
+            <element signature="e#2472#3213#0" />
+            <element signature="e#3215#3839#0" />
+            <element signature="e#3841#4102#0" />
+            <element signature="e#4104#5353#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://S:/MinGW/MinGW/lib/gcc/mingw32/4.8.1/include/c++/bits/stl_stack.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="211" column="6" selection-start-line="211" selection-start-column="6" selection-end-line="211" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://S:/MinGW/MinGW/lib/gcc/mingw32/4.8.1/include/c++/bits/stl_queue.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="237" column="6" selection-start-line="237" selection-start-column="6" selection-end-line="237" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+        <state relative-caret-position="336">
+          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SwordToOffer/Interview.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1054">
-          <caret line="176" selection-start-line="176" selection-end-line="176" />
-          <folding>
-            <element signature="e#63#667#0" />
-            <element signature="e#669#1229#0" />
-            <element signature="e#1231#1519#0" />
-            <element signature="e#1521#1976#0" />
-            <element signature="e#1978#2412#0" />
-            <element signature="e#2414#3155#0" />
-            <element signature="e#3157#3781#0" />
-            <element signature="e#3783#3949#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SwordToOffer/Interview.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="531">
-          <caret line="42" column="3" selection-start-line="42" selection-start-column="3" selection-end-line="42" selection-end-column="3" />
+        <state relative-caret-position="427">
+          <caret line="104" column="20" selection-start-line="104" selection-start-column="20" selection-end-line="104" selection-end-column="20" />
+          <folding>
+            <element signature="e#96#115#0" expanded="true" />
+            <element signature="e#1412#1424#0" expanded="true" />
+            <element signature="e#1425#1454#1" />
+            <element signature="e#1626#1638#0" expanded="true" />
+            <element signature="e#1707#1719#0" expanded="true" />
+            <element signature="e#1725#1964#0" />
+            <element signature="e#2121#2133#0" expanded="true" />
+            <element signature="e#2307#2319#0" expanded="true" />
+            <element signature="e#2382#2394#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

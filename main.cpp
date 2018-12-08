@@ -3,13 +3,16 @@
 #include "ghlib/gh.h"
 #include "SwordToOffer/Interview.h"
 using namespace std;
+using namespace swordToOffer;
 int main() {
-    int *a;
-    int b[10] = {0,1,2,3,4,5,6,7,8,9};
-    a = b;
-    a++;
-    gh::print(a[2]);
-    gh::print("hello guest! I am iron man!");
+    CQueue<int> cQueue;
+    Cstack<int> cstack;
+    cstack.push(1);
+    cstack.push(2);
+    cstack.push(3);
+    gh::print(cstack.pop());
+    gh::print(cstack.pop());
+    gh::print(cstack.pop());
     return 0;
 }
 
