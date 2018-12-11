@@ -4,30 +4,32 @@
 
 #include "Interview.h"
 using namespace swordToOffer;
-bool duplicate(int numbers[], int length, int *duplicate) {
-    if (numbers == nullptr || length <= 0)
-        return false;
-
-    for (int i = 0; i < length; ++i) {
-        if (numbers[i] < 0 || numbers[i] >= length)
-            return false;
-    }
-
-    for (int i = 0; i < length; ++i) {
-        while (numbers[i] != i) {
-            if (numbers[i] == numbers[numbers[i]]) {
-                *duplicate = numbers[i];
-                return true;
-            }
-            int temp = numbers[i];
-            numbers[i] = numbers[temp];
-            numbers[temp] = temp;
-        }
-    }
-    return false;
-}
 
 namespace swordToOffer {
+
+    bool duplicate(int numbers[], int length, int *duplicate) {
+        if (numbers == nullptr || length <= 0)
+            return false;
+
+        for (int i = 0; i < length; ++i) {
+            if (numbers[i] < 0 || numbers[i] >= length)
+                return false;
+        }
+
+        for (int i = 0; i < length; ++i) {
+            while (numbers[i] != i) {
+                if (numbers[i] == numbers[numbers[i]]) {
+                    *duplicate = numbers[i];
+                    return true;
+                }
+                int temp = numbers[i];
+                numbers[i] = numbers[temp];
+                numbers[temp] = temp;
+            }
+        }
+        return false;
+    }
+
 
     int getDuplication(const int* numbers, int length) {
         if (numbers == nullptr || length <= 0)
@@ -176,6 +178,14 @@ namespace swordToOffer {
                                                rootInorder + 1, endInorder);
         }
         return root;
+    }
+
+    long long Fibonacci(int n) {
+        if (n <= 0)
+            return 0;
+        if (n == 1)
+            return 1;
+        return Fibonacci(n - 1) + Fibonacci(n - 2);
     }
 
 }

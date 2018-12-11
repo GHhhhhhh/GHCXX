@@ -4,11 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/78455/Desktop/gh_code/gh_code/SwordToOffer/Interview.cpp" "C:/Users/78455/Desktop/gh_code/gh_code/cmake-build-debug/CMakeFiles/gh_code.dir/SwordToOffer/Interview.cpp.obj"
-  "C:/Users/78455/Desktop/gh_code/gh_code/ghlib/gh.cpp" "C:/Users/78455/Desktop/gh_code/gh_code/cmake-build-debug/CMakeFiles/gh_code.dir/ghlib/gh.cpp.obj"
-  "C:/Users/78455/Desktop/gh_code/gh_code/main.cpp" "C:/Users/78455/Desktop/gh_code/gh_code/cmake-build-debug/CMakeFiles/gh_code.dir/main.cpp.obj"
+  "/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/SwordToOffer/Interview.cpp" "/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/cmake-build-debug/CMakeFiles/gh_code.dir/SwordToOffer/Interview.cpp.o"
+  "/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/ghlib/gh.cpp" "/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/cmake-build-debug/CMakeFiles/gh_code.dir/ghlib/gh.cpp.o"
+  "/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/main.cpp" "/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/cmake-build-debug/CMakeFiles/gh_code.dir/main.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "GNU")
+set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

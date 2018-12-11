@@ -1,4 +1,3 @@
-ToolSet: 3.20@S:\MinGW\MinGW
-Options: 
+ToolSet: 1.0 (local)Options: 
 
-Options:
+Options:-DCMAKE_CXX_COMPILER=/usr/bin/g++

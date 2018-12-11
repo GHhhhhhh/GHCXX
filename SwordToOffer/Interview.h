@@ -49,7 +49,7 @@ namespace swordToOffer {
 
     BinaryTreeNode* ConstructByFMCore(int *stratPreorder, int *endPreorder,
                                       int *stratInorder, int *endInorder);
-//面试题8 用两个栈实现队列
+//面试题9  用两个栈实现队列
     template <typename T>
     class CQueue {
     public:
@@ -110,8 +110,12 @@ namespace swordToOffer {
         queue1.swap(queue2);
         return head;
     }
-}
 
+
+//面试题10 斐波那契数列
+//递归 最慢算法
+    long long Fibonacci(int n);
+}
 
 
 

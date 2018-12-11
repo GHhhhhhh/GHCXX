@@ -8,98 +8,94 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="C:/Users/78455/Desktop/gh_code/gh_code/cmake-build-debug"/>
+				<Option working_dir="/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="S:/MinGW/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/78455/Desktop/gh_code/gh_code/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="S:/MinGW/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/78455/Desktop/gh_code/gh_code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="S:/MinGW/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/78455/Desktop/gh_code/gh_code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="S:/MinGW/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/78455/Desktop/gh_code/gh_code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="gh_code">
-				<Option output="C:/Users/78455/Desktop/gh_code/gh_code/cmake-build-debug/gh_code.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/78455/Desktop/gh_code/gh_code/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="s:\mingw\mingw\bin\../lib/gcc/mingw32/4.8.1/include/c++"/>
-					<Add directory="s:\mingw\mingw\bin\../lib/gcc/mingw32/4.8.1/include/c++/mingw32"/>
-					<Add directory="s:\mingw\mingw\bin\../lib/gcc/mingw32/4.8.1/include/c++/backward"/>
-					<Add directory="s:\mingw\mingw\bin\../lib/gcc/mingw32/4.8.1/include"/>
-					<Add directory="s:\mingw\mingw\bin\../lib/gcc/mingw32/4.8.1/../../../../include"/>
-					<Add directory="s:\mingw\mingw\bin\../lib/gcc/mingw32/4.8.1/include-fixed"/>
-					<Add directory="s:\mingw\mingw\bin\../lib/gcc/mingw32/4.8.1/../../../../mingw32/include"/>
-					<Add directory="/mingw/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="S:/MinGW/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/78455/Desktop/gh_code/gh_code/cmake-build-debug/Makefile&quot;  VERBOSE=1 gh_code"/>
-					<CompileFile command="S:/MinGW/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/78455/Desktop/gh_code/gh_code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="S:/MinGW/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/78455/Desktop/gh_code/gh_code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="S:/MinGW/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/78455/Desktop/gh_code/gh_code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="gh_code/fast">
-				<Option output="C:/Users/78455/Desktop/gh_code/gh_code/cmake-build-debug/gh_code.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/78455/Desktop/gh_code/gh_code/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="s:\mingw\mingw\bin\../lib/gcc/mingw32/4.8.1/include/c++"/>
-					<Add directory="s:\mingw\mingw\bin\../lib/gcc/mingw32/4.8.1/include/c++/mingw32"/>
-					<Add directory="s:\mingw\mingw\bin\../lib/gcc/mingw32/4.8.1/include/c++/backward"/>
-					<Add directory="s:\mingw\mingw\bin\../lib/gcc/mingw32/4.8.1/include"/>
-					<Add directory="s:\mingw\mingw\bin\../lib/gcc/mingw32/4.8.1/../../../../include"/>
-					<Add directory="s:\mingw\mingw\bin\../lib/gcc/mingw32/4.8.1/include-fixed"/>
-					<Add directory="s:\mingw\mingw\bin\../lib/gcc/mingw32/4.8.1/../../../../mingw32/include"/>
-					<Add directory="/mingw/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="S:/MinGW/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/78455/Desktop/gh_code/gh_code/cmake-build-debug/Makefile&quot;  VERBOSE=1 gh_code/fast"/>
-					<CompileFile command="S:/MinGW/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/78455/Desktop/gh_code/gh_code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="S:/MinGW/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/78455/Desktop/gh_code/gh_code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="S:/MinGW/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/78455/Desktop/gh_code/gh_code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="edit_cache">
-				<Option working_dir="C:/Users/78455/Desktop/gh_code/gh_code/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="S:/MinGW/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/78455/Desktop/gh_code/gh_code/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="S:/MinGW/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/78455/Desktop/gh_code/gh_code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="S:/MinGW/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/78455/Desktop/gh_code/gh_code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="S:/MinGW/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/78455/Desktop/gh_code/gh_code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="C:/Users/78455/Desktop/gh_code/gh_code/cmake-build-debug"/>
+				<Option working_dir="/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="S:/MinGW/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/78455/Desktop/gh_code/gh_code/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="S:/MinGW/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/78455/Desktop/gh_code/gh_code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="S:/MinGW/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/78455/Desktop/gh_code/gh_code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="S:/MinGW/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/78455/Desktop/gh_code/gh_code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gh_code">
+				<Option output="/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/cmake-build-debug/gh_code" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/cmake-build-debug/Makefile&quot;  VERBOSE=1 gh_code"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gh_code/fast">
+				<Option output="/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/cmake-build-debug/gh_code" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/cmake-build-debug/Makefile&quot;  VERBOSE=1 gh_code/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/78455/Desktop/gh_code/gh_code/SwordToOffer/Interview.cpp">
+		<Unit filename="/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/SwordToOffer/Interview.cpp">
 			<Option target="gh_code"/>
 		</Unit>
-		<Unit filename="C:/Users/78455/Desktop/gh_code/gh_code/SwordToOffer/Interview.h">
+		<Unit filename="/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/SwordToOffer/Interview.h">
 			<Option target="gh_code"/>
 		</Unit>
-		<Unit filename="C:/Users/78455/Desktop/gh_code/gh_code/ghlib/gh.cpp">
+		<Unit filename="/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/ghlib/gh.cpp">
 			<Option target="gh_code"/>
 		</Unit>
-		<Unit filename="C:/Users/78455/Desktop/gh_code/gh_code/ghlib/gh.h">
+		<Unit filename="/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/ghlib/gh.h">
 			<Option target="gh_code"/>
 		</Unit>
-		<Unit filename="C:/Users/78455/Desktop/gh_code/gh_code/main.cpp">
+		<Unit filename="/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/main.cpp">
 			<Option target="gh_code"/>
 		</Unit>
-		<Unit filename="C:/Users/78455/Desktop/gh_code/gh_code/CMakeLists.txt">
+		<Unit filename="/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

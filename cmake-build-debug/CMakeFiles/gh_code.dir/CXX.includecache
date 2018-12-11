@@ -6,11 +6,7 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/78455/Desktop/gh_code/gh_code/SwordToOffer/Interview.cpp
-Interview.h
-C:/Users/78455/Desktop/gh_code/gh_code/SwordToOffer/Interview.h
-
-C:/Users/78455/Desktop/gh_code/gh_code/SwordToOffer/Interview.h
+/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/SwordToOffer/Interview.h
 iostream
 -
 stack
@@ -18,15 +14,9 @@ stack
 queue
 -
 ../ghlib/gh.h
-C:/Users/78455/Desktop/gh_code/gh_code/ghlib/gh.h
+/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/ghlib/gh.h
 
-C:/Users/78455/Desktop/gh_code/gh_code/ghlib/gh.cpp
-cstring
--
-gh.h
-C:/Users/78455/Desktop/gh_code/gh_code/ghlib/gh.h
-
-C:/Users/78455/Desktop/gh_code/gh_code/ghlib/gh.h
+/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/ghlib/gh.h
 iostream
 -
 sys/time.h
@@ -34,13 +24,13 @@ sys/time.h
 fstream
 -
 
-C:/Users/78455/Desktop/gh_code/gh_code/main.cpp
+/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/main.cpp
 iostream
 -
 algorithm
 -
 ghlib/gh.h
-C:/Users/78455/Desktop/gh_code/gh_code/ghlib/gh.h
+/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/ghlib/gh.h
 SwordToOffer/Interview.h
-C:/Users/78455/Desktop/gh_code/gh_code/SwordToOffer/Interview.h
+/Users/jjdemacbook/CLionProjects/gh_code/GHCXX/SwordToOffer/Interview.h
 

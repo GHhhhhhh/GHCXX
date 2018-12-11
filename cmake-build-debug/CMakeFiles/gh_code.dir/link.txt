@@ -1,3 +1,1 @@
-"C:\Program Files\JetBrains\CLion 2018.1.2\bin\cmake\bin\cmake.exe" -E remove -f CMakeFiles\gh_code.dir/objects.a
-S:\MinGW\MinGW\bin\ar.exe cr CMakeFiles\gh_code.dir/objects.a @CMakeFiles\gh_code.dir\objects1.rsp
-S:\MinGW\MinGW\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\gh_code.dir/objects.a -Wl,--no-whole-archive  -o gh_code.exe -Wl,--out-implib,libgh_code.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\gh_code.dir\linklibs.rsp
+/usr/bin/g++  -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/gh_code.dir/main.cpp.o CMakeFiles/gh_code.dir/ghlib/gh.cpp.o CMakeFiles/gh_code.dir/SwordToOffer/Interview.cpp.o  -o gh_code 
