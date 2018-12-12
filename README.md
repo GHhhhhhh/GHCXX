@@ -1,4 +1,4 @@
 # GHCXX
 Daily Practice
-practice "剑指Offer"
-practice "leeccode"
+# "剑指Offer"
+# "leeccode"
