@@ -1,7 +1,12 @@
-cmake_minimum_required(VERSION 3.13)
-
+cmake_minimum_required(VERSION 3.10)
 project(gh_code)
-
 set(CMAKE_CXX_STANDARD 14)
+#set(project_root ${gh_code}_SOURCE_DIR)
+include_directories(${PROJECT_SOURCE_DIR}/leetcode)
+include_directories(${PROJECT_SOURCE_DIR}/SwordToOffer)
+include_directories(${PROJECT_SOURCE_DIR}/ghlib)
+aux_source_directory(${PROJECT_SOURCE_DIR}/leetcode src)
+aux_source_directory(${PROJECT_SOURCE_DIR}/SwordToOffer src)
+aux_source_directory(${PROJECT_SOURCE_DIR}/ghlib src)
 
-add_executable(gh_code main.cpp ghlib/gh.cpp ghlib/gh.h SwordToOffer/Interview.cpp SwordToOffer/Interview.h)
+add_executable(gh_code main.cpp ${src})
