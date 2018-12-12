@@ -1,1 +1,0 @@
-/usr/bin/g++  -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/gh_code.dir/main.cpp.o CMakeFiles/gh_code.dir/ghlib/gh.cpp.o CMakeFiles/gh_code.dir/SwordToOffer/Interview.cpp.o  -o gh_code 
