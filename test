@@ -1,0 +1,10 @@
+//    CQueue<int> cQueue;
+//    Cstack<int> cstack;
+//    cstack.push(1);
+//    cstack.push(2);
+//    cstack.push(3);
+//    gh::print(cstack.pop());
+//    gh::print(cstack.pop());
+//    gh::print(cstack.pop());
+//    gh::print(FibonacciByRecursion(1000));
+//    gh::print(Fibonacci(1000));

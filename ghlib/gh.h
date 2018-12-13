@@ -22,6 +22,25 @@ namespace gh{
     std::string get_datetime();
 
     void executeCMD(const char *cmd, char *result);
+
+    template <typename returnType, typename func, typename... args>
+    returnType functime(func _func, args... _args) {
+        double time1 = gh::current_time();
+        returnType returnType1 = _func(_args...);
+        double time2 = gh::current_time();
+        gh::print("function time: ", time2 - time1);
+        return returnType1;
+    }
+
+
+    template <typename func, typename... args>
+    void functime(func _func, args... _args) {
+        double time1 = gh::current_time();
+        _func(_args...);
+        double time2 = gh::current_time();
+        gh::print("function time: ", time2 - time1);
+    }
+
 }
 
 #endif //GH_CODE_GH_H
