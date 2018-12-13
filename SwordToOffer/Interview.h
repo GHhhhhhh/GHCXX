@@ -112,11 +112,18 @@ namespace swordToOffer {
     }
 
 
-//面试题10 斐波那契数列
-//递归 最慢算法
+    //面试题10 斐波那契数列
+    //递归 最慢算法
     long long FibonacciByRecursion(unsigned int n);
 
     long long Fibonacci(unsigned int n);
+
+    //快排
+    int Partition(int data[], int length, int start, int end);
+
+    void QuickSort(int data[], int length, int start, int end);
+
+    //面试题11 旋转数组的最小数字
 }
 
 
