@@ -114,7 +114,9 @@ namespace swordToOffer {
 
 //面试题10 斐波那契数列
 //递归 最慢算法
-    long long Fibonacci(int n);
+    long long FibonacciByRecursion(unsigned int n);
+
+    long long Fibonacci(unsigned int n);
 }
 
 

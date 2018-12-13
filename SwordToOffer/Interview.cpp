@@ -2,6 +2,7 @@
 // Created by GH on 2018/11/26.
 //
 
+#include <unistd.h>
 #include "Interview.h"
 using namespace swordToOffer;
 
@@ -180,12 +181,27 @@ namespace swordToOffer {
         return root;
     }
 
-    long long Fibonacci(int n) {
+    long long FibonacciByRecursion(unsigned int n) {
         if (n <= 0)
             return 0;
         if (n == 1)
             return 1;
-        return Fibonacci(n - 1) + Fibonacci(n - 2);
+        return FibonacciByRecursion(n - 1) + FibonacciByRecursion(n - 2);
     }
 
+    long long Fibonacci(unsigned int n) {
+        long long firstNumber = 0;
+        long long secondNumber = 1;
+        if (n == 0)
+            return firstNumber;
+        if (n == 1)
+            return secondNumber;
+        long long fibonacci = 0;
+        for (int i = 2; i <= n; ++i) {
+            fibonacci = firstNumber + secondNumber;
+            firstNumber = secondNumber;
+            secondNumber = fibonacci;
+        }
+        return fibonacci;
+    }
 }
