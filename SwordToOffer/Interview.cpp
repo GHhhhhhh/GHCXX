@@ -3,6 +3,7 @@
 //
 
 #include <unistd.h>
+#include <cstdlib>
 #include "Interview.h"
 using namespace swordToOffer;
 
@@ -206,7 +207,7 @@ namespace swordToOffer {
     }
 
     int Partition(int data[], int length, int start, int end) {
-        if (data == nullptr || length <= 0 || start < 0 || end >= length)
+        if (data == nullptr || length < 0 || start < 0 || end > length)
             gh::print("ERROR");
 //            throw new std::exception();
         int index = (rand() % (end - start + 1)) + start;
