@@ -119,9 +119,14 @@ namespace swordToOffer {
     long long Fibonacci(unsigned int n);
 
     //快排
+    int RandomInRange(int start, int end);
+
     int Partition(int data[], int length, int start, int end);
 
     void QuickSort(int data[], int length, int start, int end);
+
+    //age sort
+    void sortAges(int *ages, int length);
 
     //面试题11 旋转数组的最小数字
 }

@@ -206,11 +206,27 @@ namespace swordToOffer {
         return fibonacci;
     }
 
+    int RandomInRange(int start, int end) {
+        if (end > start) {
+            srand(time(NULL));
+            return start + rand() % ((end - start));
+        }
+        return 0;
+    }
+
+    void swap_element(int *a, int *b) {
+        int temp;
+        temp = *a;
+        *a = *b;
+        *b = temp;
+    }
+
     int Partition(int data[], int length, int start, int end) {
-        if (data == nullptr || length < 0 || start < 0 || end > length)
+        if (data == nullptr || length <= 0 || start < 0 || end >= length)
             gh::print("ERROR");
 //            throw new std::exception();
-        int index = (rand() % (end - start + 1)) + start;
+        int index = RandomInRange(start, end);
+//        gh::print("index: ", index, "index data: ", data[index]);
         std::swap(data[index], data[end]);
         int small = start - 1;
         for (index = start; index < end; ++index) {
@@ -221,7 +237,7 @@ namespace swordToOffer {
             }
         }
         ++small;
-        std::swap(data[start], data[end]);
+        std::swap(data[small], data[end]);
         return small;
     }
 
@@ -233,6 +249,28 @@ namespace swordToOffer {
             QuickSort(data, length, start, index - 1);
         if (index < end)
             QuickSort(data, length, index + 1, end);
+    }
+
+    void sortAges(int *ages, int length) {
+        if (ages == nullptr || length < 0)
+            gh::print("exception");
+        int maxage = 99;
+        int ageCount[maxage + 1];
+        for (int i = 0; i < 100; ++i) {
+            ageCount[i] = 0;
+        }
+        for (int i = 0; i < length; ++i) {
+            int age = ages[i];
+            if (age > 99 || age < 0)
+                gh::print("exception");
+            ++ageCount[age];
+        }
+        int k = 0;
+        for (int i = 0; i <= maxage; ++i) {
+            for (int j = 0; j < ageCount[i]; ++j) {
+                ages[k++] = i;
+            }
+        }
     }
 
 }
