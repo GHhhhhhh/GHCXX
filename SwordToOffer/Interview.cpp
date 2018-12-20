@@ -273,6 +273,35 @@ namespace swordToOffer {
         }
     }
 
+	int Min(int *numbers, int length) {
+        if (numbers == nullptr || length <= 0)
+            throw new std::exception();
+        int indexP1 = 0;
+        int indexP2 = length - 1;
+        int indexMiddle;
+        while (indexP2 - indexP1 > 1) {
+            indexMiddle = (indexP1 + indexP2) / 2;
+            //当三个值相等
+            if (numbers[indexP1] == numbers[indexMiddle] and numbers[indexMiddle] == numbers[indexP2]) {
+                int min = numbers[indexP2];
+                for (int i = indexP1; i < indexP2; ++i) {
+                    if (numbers[i] < min)
+                        min = numbers[i];
+                }
+                return min;
+            }
+
+            if (numbers[indexP1] <= numbers[indexMiddle]) {
+                indexP1 = indexMiddle;
+                continue;
+            }
+            if (numbers[indexP2] >= numbers[indexMiddle]) {
+                indexP2 = indexMiddle;
+            }
+        }
+        return numbers[indexP1] < numbers[indexP2] ? numbers[indexP1] : numbers[indexP2];
+    }
+	
     bool hasPath(char *matrix, int rows, int cols, char *str) {
         if (matrix == nullptr || rows <= 0 || cols <= 0 || str == nullptr)
             return false;

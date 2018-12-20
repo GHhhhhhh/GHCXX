@@ -129,7 +129,8 @@ namespace swordToOffer {
     void sortAges(int *ages, int length);
 
     //面试题11 旋转数组的最小数字
-
+	int Min(int *numbers, int length);
+	
     //12 judge have path
     bool hasPath(char *matrix, int rows, int cols, char *str);
 
