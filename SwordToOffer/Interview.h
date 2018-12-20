@@ -140,6 +140,9 @@ namespace swordToOffer {
     int robotMoveCore(int rows, int cols, int row, int col, int threshold, bool *visited);
     bool computeThreshold(int row, int col, int threshold);
 
+    // 14 cut line
+    int maxProductAfterCutting_solution(int length);
+
 }
 
 
