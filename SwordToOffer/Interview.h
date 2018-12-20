@@ -111,7 +111,6 @@ namespace swordToOffer {
         return head;
     }
 
-
     //面试题10 斐波那契数列
     //递归 最慢算法
     long long FibonacciByRecursion(unsigned int n);
@@ -134,7 +133,13 @@ namespace swordToOffer {
     //12 judge have path
     bool hasPath(char *matrix, int rows, int cols, char *str);
 
-    bool hasPathCore(char *matrix, int rows, int cols, int row, int col, char *str, bool *visit, int&);
+    bool hasPathCore(char *matrix, int rows, int cols, int row, int col, char *str, bool *visit, int);
+
+    //13 机器人移动多少格子
+    int robotMoveCount(int threshold, int rows, int cols);
+    int robotMoveCore(int rows, int cols, int row, int col, int threshold, bool *visited);
+    bool computeThreshold(int row, int col, int threshold);
+
 }
 
 

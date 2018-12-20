@@ -32,7 +32,6 @@ namespace swordToOffer {
         return false;
     }
 
-
     int getDuplication(const int* numbers, int length) {
         if (numbers == nullptr || length <= 0)
             return -1;
@@ -301,11 +300,11 @@ namespace swordToOffer {
         }
         return numbers[indexP1] < numbers[indexP2] ? numbers[indexP1] : numbers[indexP2];
     }
-	
+
     bool hasPath(char *matrix, int rows, int cols, char *str) {
         if (matrix == nullptr || rows <= 0 || cols <= 0 || str == nullptr)
             return false;
-        bool *visit = new bool[rows * cols];
+        bool visit[rows * cols];
         for (int i = 0; i < cols * rows; ++i)
             visit[0] = false;
 
@@ -316,11 +315,10 @@ namespace swordToOffer {
                     return true;
             }
         }
-        delete[] visit;
         return false;
     }
 
-    bool hasPathCore(char *matrix, int rows, int cols, int row, int col, char *str, bool *visited, int &pathLength) {
+    bool hasPathCore(char *matrix, int rows, int cols, int row, int col, char *str, bool *visited, int pathLength) {
         if (str[pathLength] == '\0')
             return true;
         bool hasPath = false;
@@ -332,12 +330,50 @@ namespace swordToOffer {
                       hasPathCore(matrix, rows, cols, row + 1, col, str, visited, pathLength) ||
                       hasPathCore(matrix, rows, cols, row, col + 1, str, visited, pathLength);
             if (!hasPath) {
-                --pathLength;
                 visited[row * cols + col] = false;
             }
-
         }
         return hasPath;
     }
 
+    int robotMoveCount(int threshold, int rows, int cols) {
+        if (rows < 0 || cols < 0)
+            return 0;
+        bool visited[rows * cols];
+        for (int i = 0; i < cols * rows; ++i) {
+            visited[i] = false;
+        }
+        return robotMoveCore(rows, cols, 0, 0, threshold, visited);
+    }
+
+    int robotMoveCore(int rows, int cols, int row, int col, int threshold, bool *visited) {
+        int counts = 0;
+        if (row < rows && col < cols && row >= 0 && col >= 0 && computeThreshold(row, col, threshold) && !visited[row * cols + col]) {
+            visited[row * cols + col] = true;
+            counts = 1 +
+            robotMoveCore(rows, cols, row - 1, col, threshold, visited) +
+            robotMoveCore(rows, cols, row, col - 1, threshold, visited) +
+            robotMoveCore(rows, cols, row, col + 1, threshold, visited) +
+            robotMoveCore(rows, cols, row + 1, col, threshold, visited);
+        }
+        return counts;
+    }
+
+    bool computeThreshold(int row, int col, int threshold) {
+        if (row < 0 || col < 0 || threshold < 0 )
+            return false;
+        int thresholdTemp = 0;
+        while (row % 10 != 0) {
+            thresholdTemp += row % 10;
+            row /= 10;
+        }
+        while (col % 10 != 0) {
+            thresholdTemp += col % 10;
+            col /= 10;
+        }
+        return thresholdTemp < threshold;
+    }
 }
+
+
+
