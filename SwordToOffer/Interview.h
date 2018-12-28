@@ -143,6 +143,11 @@ namespace swordToOffer {
     // 14 cut line
     int maxProductAfterCutting_solution(int length);
 
+    //15
+    int NumberOf1(int n);
+
+    int NumberOf1_new(int n);
+
 }
 
 

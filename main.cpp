@@ -8,7 +8,9 @@ int main() {
 //    char matrix[12] = {'a','b','t','g','c','f','c','s','j','d','e','h'};
 //    gh::print(hasPath(matrix, 3,4,"bfce"));
 //    gh::print(hasPath(matrix, 3,4,"abfb"));
-    gh::print(maxProductAfterCutting_solution(8));
+//    gh::print(maxProductAfterCutting_solution(8));
+    gh::print(NumberOf1_new(9));
+
     return 0;
 }
 
