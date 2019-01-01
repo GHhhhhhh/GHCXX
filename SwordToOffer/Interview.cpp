@@ -4,6 +4,8 @@
 
 #include <unistd.h>
 #include <cstdlib>
+#include <cmath>
+#include <cstring>
 #include "Interview.h"
 using namespace swordToOffer;
 
@@ -421,6 +423,63 @@ namespace swordToOffer {
         return count;
     }
 
+    double Pow(double base, int exponent) {
+        if (exponent == 0)
+            return 1.0;
+        if (base == 1)
+            return base;
+        if (fabs(base - 1.0) < 9E-10)
+            return 0;
+        bool isPositive = true;
+        if (exponent < 0) {
+            isPositive = false;
+            exponent = -exponent;
+        }
+        double result;
+        if (exponent % 2 == 0) {
+            result = Pow(base, exponent / 2) * Pow(base, exponent / 2);
+        } else {
+            result = base * Pow(base, exponent / 2) * Pow(base, exponent / 2);
+        }
+        return isPositive ? result : 1/result;
+    }
+
+    void Print1ToMaxOfDigits(int n) {
+        if (n < 0)
+            return;
+        char *number = new char[n + 1];
+        number[n] = '\0';
+        number[0] = '0';
+        Print1ToMaxOfDigitsRecursively(number, n ,0);
+        delete[] number;
+    }
+
+    void Print1ToMaxOfDigitsRecursively(char* number, int length, int index) {
+        if (index == length) {
+            printNumber(number);
+            return;
+        }
+        for (int i = 0; i < 10; ++i) {
+            number[index + 1] = static_cast<char>(i + '0');
+            Print1ToMaxOfDigitsRecursively(number, length, index + 1);
+        }
+    }
+
+    void printNumber(char *number) {
+        if (number == nullptr)
+            return;
+        int index = 0;
+        bool isFirst = false;
+        while(number[index] != '\0') {
+            if (!isFirst && number[index] != '0') {
+                isFirst = true;
+            }
+            if (isFirst)
+                printf("%c", number[index]);
+            ++index;
+        }
+        printf("\t");
+    }
 }
 
 

@@ -9,7 +9,7 @@ int main() {
 //    gh::print(hasPath(matrix, 3,4,"bfce"));
 //    gh::print(hasPath(matrix, 3,4,"abfb"));
 //    gh::print(maxProductAfterCutting_solution(8));
-    gh::print(NumberOf1_new(9));
+    Print1ToMaxOfDigits(3);
 
     return 0;
 }

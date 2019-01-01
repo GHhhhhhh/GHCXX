@@ -148,6 +148,16 @@ namespace swordToOffer {
 
     int NumberOf1_new(int n);
 
+    //16
+    double Pow(double base, int exponent);
+
+    //17
+    void Print1ToMaxOfDigits(int n);
+
+    void Print1ToMaxOfDigitsRecursively(char* number, int length, int index);
+
+    void printNumber(char *number);
+
 }
 
 
