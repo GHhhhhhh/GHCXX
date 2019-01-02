@@ -11,6 +11,35 @@ using namespace swordToOffer;
 
 namespace swordToOffer {
 
+    void addListNode(ListNode* head, ListNode* newlistNode) {
+        if (head->m_pNext == nullptr) {
+            head->m_pNext = newlistNode;
+            return;
+        }
+        ListNode *listNodeTemp = head;
+        while (listNodeTemp->m_pNext != nullptr)
+            listNodeTemp = listNodeTemp->m_pNext;
+        listNodeTemp->m_pNext = newlistNode;
+    }
+
+    void printListNode(ListNode* head) {
+        if (head == nullptr)
+            return;
+        ListNode *listNodeTemp = head;
+        while (listNodeTemp != nullptr) {
+            std::cout<<listNodeTemp->m_nValue<<" ";
+            listNodeTemp = listNodeTemp->m_pNext;
+        }
+        std::cout<<std::endl;
+    }
+
+    ListNode* newListNode(int value) {
+        ListNode *p = new ListNode();
+        p->m_nValue = value;
+        p->m_pNext = nullptr;
+        return p;
+    }
+
     bool duplicate(int numbers[], int length, int *duplicate) {
         if (numbers == nullptr || length <= 0)
             return false;
@@ -479,6 +508,30 @@ namespace swordToOffer {
             ++index;
         }
         printf("\t");
+    }
+
+    void DeleteNode(ListNode* pListHead, ListNode* pToBeDelete) {
+        if (pListHead == nullptr || pToBeDelete == nullptr)
+            return;
+        if (pToBeDelete->m_pNext != nullptr) {
+            ListNode *tempListNode = pToBeDelete->m_pNext;
+            pToBeDelete->m_nValue = tempListNode->m_nValue;
+            pToBeDelete->m_pNext = tempListNode->m_pNext;
+            delete tempListNode;
+            tempListNode = nullptr;
+        } else if (pListHead == pToBeDelete) {
+            delete pToBeDelete;
+            pToBeDelete = nullptr;
+            pListHead = nullptr;
+        } else {
+            ListNode *tempListNode = pListHead;
+            while (tempListNode->m_pNext != pToBeDelete) {
+                tempListNode = tempListNode->m_pNext;
+            }
+            tempListNode->m_pNext = nullptr;
+            delete pToBeDelete;
+            pToBeDelete = nullptr;
+        }
     }
 }
 

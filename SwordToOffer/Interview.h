@@ -22,6 +22,12 @@ namespace swordToOffer {
         ListNode* m_pNext;
     };
 
+    void addListNode(ListNode* head, ListNode* newlistNode);
+
+    void printListNode(ListNode* head);
+
+    ListNode* newListNode(int value);
+
 //面试题3     int numbers[8] = {2,3,5,4,3,2,6,7};
     bool duplicate(int numbers[], int length, int *duplicate);
 
@@ -158,6 +164,8 @@ namespace swordToOffer {
 
     void printNumber(char *number);
 
+    // 18
+    void DeleteNode(ListNode* pListHead, ListNode* pToBeDelete);
 }
 
 

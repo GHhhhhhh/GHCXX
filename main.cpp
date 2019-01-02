@@ -9,7 +9,16 @@ int main() {
 //    gh::print(hasPath(matrix, 3,4,"bfce"));
 //    gh::print(hasPath(matrix, 3,4,"abfb"));
 //    gh::print(maxProductAfterCutting_solution(8));
-    Print1ToMaxOfDigits(3);
+//    Print1ToMaxOfDigits(3);
+    ListNode *head = newListNode(10);
+    addListNode(head, newListNode(2));
+//    addListNode(head, newListNode(3));
+//    addListNode(head, newListNode(4));
+    printListNode(head);
+
+    ListNode *pToBeDelete = head->m_pNext;
+//    DeleteNode(head, pToBeDelete);
+    printListNode(head);
 
     return 0;
 }
