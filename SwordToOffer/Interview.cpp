@@ -533,6 +533,36 @@ namespace swordToOffer {
             pToBeDelete = nullptr;
         }
     }
+
+    void DeleteDuplication(ListNode **pHead) {
+        if (pHead == nullptr || *pHead == nullptr)
+            return;
+        ListNode *preNode = nullptr;
+        ListNode *pTempHead = *pHead;
+        while (pTempHead != nullptr) {
+            ListNode *pNext = pTempHead->m_pNext;
+            if (pNext != nullptr && pTempHead->m_nValue == pNext->m_nValue) {
+                int value = pTempHead->m_nValue;
+                ListNode* toBeDelete = pTempHead;
+                while (toBeDelete != nullptr && toBeDelete->m_nValue == value) {
+                    pNext = toBeDelete->m_pNext;
+                    delete toBeDelete;
+                    toBeDelete = nullptr;
+                    toBeDelete = pNext;
+                }
+
+                if (preNode == nullptr)
+                    *pHead = pNext;
+                else
+                    preNode->m_pNext = pNext;
+                pTempHead = pNext;
+
+            } else {
+                preNode = pTempHead;
+                pTempHead = pTempHead->m_pNext;
+            }
+        }
+    }
 }
 
 

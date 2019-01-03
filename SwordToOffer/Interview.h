@@ -166,6 +166,8 @@ namespace swordToOffer {
 
     // 18
     void DeleteNode(ListNode* pListHead, ListNode* pToBeDelete);
+
+    void DeleteDuplication(ListNode **pHead);
 }
 
 
