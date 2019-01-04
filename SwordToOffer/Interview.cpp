@@ -22,6 +22,22 @@ namespace swordToOffer {
         listNodeTemp->m_pNext = newlistNode;
     }
 
+    void addListNode(ListNode** pHead, int value) {
+        ListNode *newList = new ListNode();
+        newList->m_pNext = nullptr;
+        newList->m_nValue = value;
+        if (*pHead == nullptr) {
+            *pHead = new ListNode;
+            *pHead = newList;
+        } else {
+            ListNode *pNode = *pHead;
+            while (pNode->m_pNext != nullptr) {
+                pNode = pNode->m_pNext;
+            }
+            pNode->m_pNext = newList;
+        }
+    }
+
     void printListNode(ListNode* head) {
         if (head == nullptr)
             return;
@@ -29,6 +45,17 @@ namespace swordToOffer {
         while (listNodeTemp != nullptr) {
             std::cout<<listNodeTemp->m_nValue<<" ";
             listNodeTemp = listNodeTemp->m_pNext;
+        }
+        std::cout<<std::endl;
+    }
+
+    void printListNode(ListNode** pHead) {
+        if (*pHead == nullptr)
+            return;
+        ListNode *pNode = *pHead;
+        while (pNode != nullptr) {
+            std::cout<<pNode->m_nValue<<" ";
+            pNode = pNode->m_pNext;
         }
         std::cout<<std::endl;
     }

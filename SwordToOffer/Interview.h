@@ -22,9 +22,13 @@ namespace swordToOffer {
         ListNode* m_pNext;
     };
 
-    void addListNode(ListNode* head, ListNode* newlistNode);
+    void addListNode(ListNode* pHead, ListNode* newlistNode);
 
-    void printListNode(ListNode* head);
+    void addListNode(ListNode** pHead, int value);
+
+    void printListNode(ListNode* pHead);
+
+    void printListNode(ListNode** pHead);
 
     ListNode* newListNode(int value);
 
