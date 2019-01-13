@@ -172,6 +172,10 @@ namespace swordToOffer {
     void DeleteNode(ListNode* pListHead, ListNode* pToBeDelete);
 
     void DeleteDuplication(ListNode **pHead);
+
+    //19 match
+    bool match(char* str, char* pattern);
+    bool matchCore(char* str, char* pattern);
 }
 
 
