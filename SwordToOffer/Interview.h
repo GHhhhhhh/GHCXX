@@ -176,6 +176,9 @@ namespace swordToOffer {
     //19 match
     bool match(char* str, char* pattern);
     bool matchCore(char* str, char* pattern);
+
+    //21
+    void RecorderOddEven(int *pData, int length);
 }
 
 

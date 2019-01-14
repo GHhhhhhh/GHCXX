@@ -613,6 +613,27 @@ namespace swordToOffer {
             return matchCore(str + 1, pattern + 1);
         return false;
     }
+
+    void RecorderOddEven(int *pData, int length) {
+        if (pData == 0 || length <= 0)
+            return;
+        int left = 0, right = length - 1;
+        while (left < right) {
+            if (pData[left] % 2 != 0 && pData[right] % 2 != 0)
+                ++left;
+            if (pData[left] % 2 == 0 && pData[right] % 2 == 0)
+                --right;
+            if (pData[left] % 2 == 0 && pData[right] % 2 != 0) {
+                int temp = pData[left];
+                pData[left] = pData[right];
+                pData[right] = temp;
+                ++left;
+            }
+            if (pData[left] % 2 != 0 && pData[right] % 2 == 0) {
+                --right;
+            }
+        }
+    }
 }
 
 
