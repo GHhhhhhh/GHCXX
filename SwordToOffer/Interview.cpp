@@ -619,20 +619,77 @@ namespace swordToOffer {
             return;
         int left = 0, right = length - 1;
         while (left < right) {
-            if (pData[left] % 2 != 0 && pData[right] % 2 != 0)
+            while(left < right && pData[left] % 2 != 0)
                 ++left;
-            if (pData[left] % 2 == 0 && pData[right] % 2 == 0)
+            while(left < right && pData[right] % 2 == 0)
                 --right;
-            if (pData[left] % 2 == 0 && pData[right] % 2 != 0) {
+            if (left < right) {
                 int temp = pData[left];
                 pData[left] = pData[right];
                 pData[right] = temp;
                 ++left;
             }
-            if (pData[left] % 2 != 0 && pData[right] % 2 == 0) {
-                --right;
-            }
+//            if (pData[left] % 2 != 0 && pData[right] % 2 != 0)
+//                ++left;
+//            if (pData[left] % 2 == 0 && pData[right] % 2 == 0)
+//                --right;
+//            if (pData[left] % 2 == 0 && pData[right] % 2 != 0) {
+//                int temp = pData[left];
+//                pData[left] = pData[right];
+//                pData[right] = temp;
+//                ++left;
+//            }
+//            if (pData[left] % 2 != 0 && pData[right] % 2 == 0) {
+//                --right;
+//            }
         }
+    }
+
+    bool isNumberic(const char* str) {
+        if (str == nullptr)
+            return false;
+        scanInteger(&str);
+        if (*str == '.') {
+            ++str;
+//            number = scanUnsignedInteger(&str) || number;
+            scanUnsignedInteger(&str);
+        }
+        if (*str == 'e' || *str == 'E') {
+            ++str;
+//            number = scanInteger(&str) && number;
+            scanInteger(&str);
+        }
+//        return number && *str == '\0';
+        return *str == '\0';
+    }
+
+    bool scanInteger(const char** str) {
+        if (**str == '+' || **str == '-')
+            ++(*str);
+        return scanUnsignedInteger(str);
+    }
+
+    bool scanUnsignedInteger(const char** str) {
+        const char *before = *str;
+        while (**str != '\0' && **str >= '0' && **str <= '9')
+            ++(*str);
+        return *str > before;
+    }
+
+    ListNode* FindKthToTail(ListNode* pListNode, unsigned int k) {
+        if (pListNode == nullptr || k <= 0)
+            return nullptr;
+        int move = 0;
+        ListNode *pNode = pListNode;
+        ListNode *pHead = pListNode;
+
+        while(pHead->m_pNext != nullptr) {
+            pHead = pHead->m_pNext;
+            ++move;
+            if (move >= k)
+                pNode = pNode->m_pNext;
+        }
+        return pNode;
     }
 }
 

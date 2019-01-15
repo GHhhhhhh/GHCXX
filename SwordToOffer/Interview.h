@@ -177,8 +177,14 @@ namespace swordToOffer {
     bool match(char* str, char* pattern);
     bool matchCore(char* str, char* pattern);
 
+    //20
+    bool isNumberic(const char* str);
+    bool scanInteger(const char** str);
+    bool scanUnsignedInteger(const char** str);
     //21
     void RecorderOddEven(int *pData, int length);
+    //22
+    ListNode* FindKthToTail(ListNode* pListNode, unsigned int k);
 }
 
 
