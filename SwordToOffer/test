@@ -35,3 +35,43 @@
     //    *phead = head;
         DeleteDuplication(phead);
         printListNode(phead);
+
+ListNode *head = newListNode(1);
+    addListNode(head, newListNode(2));
+    addListNode(head, newListNode(3));
+    addListNode(head, newListNode(4));
+    addListNode(head, newListNode(5));
+    addListNode(head, newListNode(6));
+    addListNode(head, newListNode(7));
+    ListNode *pNode4 = nullptr;
+    ListNode *p = head;
+    while (p != nullptr) {
+        if (p->m_nValue == 4) {
+            pNode4 = p;
+            break;
+        }
+        p = p->m_pNext;
+    }
+    p = head;
+    while (p->m_pNext!= nullptr) {
+        p = p->m_pNext;
+    }
+    p->m_pNext = pNode4;
+
+//    while (head != nullptr) {
+//        gh::print(head->m_nValue);
+//        head = head->m_pNext;
+//    }
+    p = EntryNodeLoop(head);
+    gh::print(p->m_nValue);
+
+    int numbers1[4] = {1,3,5,7};
+        int numbers2[4] = {2,4,5,8};
+        ListNode* pHead1 = newListNode(numbers1, 4);
+        ListNode* pHead2 = newListNode(numbers2, 4);
+        ListNode *pHead = mergeListNodeByRecursion(pHead1, pHead2);
+        while (pHead!= nullptr) {
+            gh::print(pHead->m_nValue);
+            pHead = pHead->m_pNext;
+        }
+        err_msg("asd");

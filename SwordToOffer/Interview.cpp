@@ -22,6 +22,22 @@ namespace swordToOffer {
         listNodeTemp->m_pNext = newlistNode;
     }
 
+    ListNode* newListNode(int* numbers, int length) {
+        if (numbers == nullptr || length <= 0)
+            return nullptr;
+        ListNode *pHead = new ListNode();
+        ListNode *pNode = pHead;
+        for (int i = 0; i < length; ++i) {
+            pNode->m_nValue = numbers[i];
+            if (i!=length-1)
+                pNode->m_pNext = new ListNode;
+            else
+                pNode->m_pNext = nullptr;
+            pNode = pNode->m_pNext;
+        }
+        return pHead;
+    }
+
     void addListNode(ListNode** pHead, int value) {
         ListNode *newList = new ListNode();
         newList->m_pNext = nullptr;
@@ -690,6 +706,117 @@ namespace swordToOffer {
                 pNode = pNode->m_pNext;
         }
         return pNode;
+    }
+
+    ListNode* MeetNode(ListNode* pHead) {
+        if (pHead == nullptr)
+            return nullptr;
+        ListNode* pSlow = pHead->m_pNext;
+        if (pSlow == nullptr)
+            return nullptr;
+
+        ListNode* pFast = pSlow->m_pNext;
+        while (pFast != pSlow && pFast->m_pNext != nullptr) {
+            pFast = pFast->m_pNext->m_pNext;
+            pSlow = pSlow->m_pNext;
+        }
+        if (pFast == nullptr)
+            return nullptr;
+        return pFast;
+    }
+
+    ListNode* EntryNodeLoop(ListNode* pHead) {
+        if (pHead == nullptr)
+            return nullptr;
+        ListNode *pNode = MeetNode(pHead);
+        if (pNode == nullptr)
+            return nullptr;
+        int LoopLength = 1;
+        ListNode *pTemp = pNode;
+        while(pNode->m_pNext != pTemp) {
+            pNode = pNode->m_pNext;
+            ++LoopLength;
+        }
+        ListNode *pFast = pHead;
+        ListNode *pSlow = pHead;
+        while(LoopLength > 0) {
+            pFast = pFast->m_pNext;
+            --LoopLength;
+        }
+        while (pFast != pSlow) {
+            pFast = pFast->m_pNext;
+            pSlow = pSlow->m_pNext;
+        }
+        return pFast;
+    }
+
+    ListNode* ReverseList(ListNode *pHead) {
+        if (pHead == nullptr)
+            return nullptr;
+        ListNode *pPre = nullptr;
+        if (pHead->m_pNext != nullptr) {
+            pPre = pHead;
+            pHead = pHead->m_pNext;
+            pPre->m_pNext = nullptr;
+        } else {
+            return pHead;
+        }
+
+        ListNode *pNext = nullptr;
+        while (pHead != nullptr) {
+            pNext = pHead->m_pNext;
+            pHead->m_pNext = pPre;
+            pPre = pHead;
+            pHead = pNext;
+        }
+        return pPre;
+    }
+
+    ListNode* mergeListNode(ListNode* pHead1, ListNode* pHead2) {
+        if(pHead1 == nullptr)
+            return pHead2;
+        if(pHead2 == nullptr)
+            return pHead1;
+        ListNode *pHead = nullptr;
+        if (pHead1->m_nValue < pHead2->m_nValue) {
+            pHead = pHead1;
+            pHead1 = pHead1->m_pNext;
+        } else {
+            pHead = pHead2;
+            pHead2 = pHead2->m_pNext;
+        }
+        ListNode* pNode = pHead;
+        while (pHead1 != nullptr && pHead2 != nullptr) {
+            if (pHead1->m_nValue < pHead2->m_nValue) {
+                pNode->m_pNext = pHead1;
+                pHead1 = pHead1->m_pNext;
+            } else {
+                pNode->m_pNext = pHead2;
+                pHead2 = pHead2->m_pNext;
+            }
+            pNode = pNode->m_pNext;
+        }
+        if (pHead1 == nullptr && pHead2!= nullptr)
+            pNode->m_pNext = pHead2;
+        if (pHead2 == nullptr && pHead1!= nullptr)
+            pNode->m_pNext = pHead1;
+        return pHead;
+    }
+
+    ListNode* mergeListNodeByRecursion(ListNode* pHead1, ListNode* pHead2) {
+        if(pHead1 == nullptr)
+            return pHead2;
+        if(pHead2 == nullptr)
+            return pHead1;
+        ListNode* pHead = nullptr;
+        if(pHead1->m_nValue < pHead2->m_nValue) {
+            pHead = pHead1;
+            pHead->m_pNext = mergeListNodeByRecursion(pHead1->m_pNext, pHead2);
+        } else {
+            pHead = pHead2;
+            pHead->m_pNext = mergeListNodeByRecursion(pHead1, pHead2->m_pNext);
+        }
+        return pHead;
     }
 }
 

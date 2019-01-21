@@ -22,7 +22,10 @@ namespace swordToOffer {
         ListNode* m_pNext;
     };
 
+
     void addListNode(ListNode* pHead, ListNode* newlistNode);
+
+    ListNode* newListNode(int* numbers, int length);
 
     void addListNode(ListNode** pHead, int value);
 
@@ -185,6 +188,16 @@ namespace swordToOffer {
     void RecorderOddEven(int *pData, int length);
     //22
     ListNode* FindKthToTail(ListNode* pListNode, unsigned int k);
+    //23
+    ListNode* MeetNode(ListNode* pHead);
+    ListNode* EntryNodeLoop(ListNode* pHead);
+
+    //24
+    ListNode* ReverseList(ListNode *pHead);
+
+    //25
+    ListNode* mergeListNode(ListNode* pHead1, ListNode* pHead2);
+    ListNode* mergeListNodeByRecursion(ListNode* pHead1, ListNode* pHead2);
 }
 
 
