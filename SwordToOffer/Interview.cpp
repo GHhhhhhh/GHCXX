@@ -11,6 +11,27 @@ using namespace swordToOffer;
 
 namespace swordToOffer {
 
+    BinaryTreeNode* createBinaryTreeNodebyPre() {
+        BinaryTreeNode *pRoot = nullptr;
+        char ch;
+        scanf("%c", &ch);
+        if (ch != '#') {
+            pRoot = new BinaryTreeNode;
+            pRoot->m_nValue = ch - 48;
+            pRoot->m_pLeft = createBinaryTreeNodebyPre();
+            pRoot->m_pRight= createBinaryTreeNodebyPre();
+        }
+        return pRoot;
+    }
+
+    void PreBinaryTree(BinaryTreeNode* pRoot) {
+        if (pRoot) {
+            gh::print(pRoot->m_nValue);
+            PreBinaryTree(pRoot->m_pLeft);
+            PreBinaryTree(pRoot->m_pRight);
+        }
+    }
+
     void addListNode(ListNode* head, ListNode* newlistNode) {
         if (head->m_pNext == nullptr) {
             head->m_pNext = newlistNode;
@@ -817,6 +838,40 @@ namespace swordToOffer {
             pHead->m_pNext = mergeListNodeByRecursion(pHead1, pHead2->m_pNext);
         }
         return pHead;
+    }
+
+    bool HasSubtree(BinaryTreeNode* pRoot1, BinaryTreeNode* pRoot2) {
+        if (pRoot1 == nullptr || pRoot2 == nullptr)
+            return false;
+
+        bool isHas = false;
+
+        if (pRoot1->m_nValue == pRoot2->m_nValue) {
+            isHas = coreHasSubtree(pRoot1, pRoot2);
+        }
+
+        if (!isHas)
+            isHas = HasSubtree(pRoot1->m_pLeft, pRoot2);
+        if (!isHas)
+            isHas = HasSubtree(pRoot1->m_pRight, pRoot2);
+
+        return isHas;
+    }
+
+    bool coreHasSubtree(BinaryTreeNode* pRoot1, BinaryTreeNode* pRoot2) {
+        if (pRoot2 == nullptr)
+            return true;
+//        if (pRoot1 == nullptr)
+//            return false;
+//        if (pRoot1->m_nValue != pRoot2->m_nValue)
+//            return false;
+//
+        bool isEqual = false;
+        if (pRoot1->m_nValue == pRoot2->m_nValue) {
+            isEqual = coreHasSubtree(pRoot1->m_pLeft, pRoot2->m_pLeft) &&
+            coreHasSubtree(pRoot1->m_pRight, pRoot2->m_pRight);
+        }
+        return isEqual;
     }
 }
 

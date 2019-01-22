@@ -21,7 +21,8 @@ namespace swordToOffer {
         int m_nValue;
         ListNode* m_pNext;
     };
-
+    void PreBinaryTree(BinaryTreeNode* pRoot);
+    BinaryTreeNode* createBinaryTreeNodebyPre();
 
     void addListNode(ListNode* pHead, ListNode* newlistNode);
 
@@ -198,6 +199,10 @@ namespace swordToOffer {
     //25
     ListNode* mergeListNode(ListNode* pHead1, ListNode* pHead2);
     ListNode* mergeListNodeByRecursion(ListNode* pHead1, ListNode* pHead2);
+
+    //26
+    bool HasSubtree(BinaryTreeNode* pRoot1, BinaryTreeNode* pRoot2);
+    bool coreHasSubtree(BinaryTreeNode* pRoot1, BinaryTreeNode* pRoot2);
 }
 
 
