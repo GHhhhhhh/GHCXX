@@ -22,7 +22,11 @@ namespace swordToOffer {
         ListNode* m_pNext;
     };
     void PreBinaryTree(BinaryTreeNode* pRoot);
+
     BinaryTreeNode* createBinaryTreeNodebyPre();
+
+    BinaryTreeNode* createBinaryTreeNodebyPre(char *str);
+    BinaryTreeNode* createBinaryTreeNodebyPreCore(char *str, int *index);
 
     void addListNode(ListNode* pHead, ListNode* newlistNode);
 
@@ -203,6 +207,56 @@ namespace swordToOffer {
     //26
     bool HasSubtree(BinaryTreeNode* pRoot1, BinaryTreeNode* pRoot2);
     bool coreHasSubtree(BinaryTreeNode* pRoot1, BinaryTreeNode* pRoot2);
+
+    //27
+    void MirrorRecursively(BinaryTreeNode* pRoot);
+
+    //28
+    bool isSymmetrical(BinaryTreeNode* pRoot);
+    bool isSymmetrical(BinaryTreeNode* pRoot1, BinaryTreeNode* pRoot2);
+
+    //29
+    void PrintMatrixClockwisely(int **numbers, int cols, int rows);
+    void PrintMatrixCircle(int **numbers, int cols, int rows, int start);
+
+    //30
+    template <typename T>
+    class StackMin {
+    public:
+        void push(const T &t);
+        void pop();
+        T top();
+        T min();
+    private:
+        std::stack<T> m_data;
+        std::stack<T> m_min;
+    };
+
+    template<typename T>
+    void StackMin<T>::push(const T &t) {
+        m_data.push(t);
+        if (m_min.empty())
+            m_min.push(t);
+        else {
+            m_min.push(m_min.top() > t ? t : m_min.top());
+        }
+    }
+
+    template<typename T>
+    void StackMin<T>::pop() {
+        m_data.pop();
+        m_min.pop();
+    }
+
+    template<typename T>
+    T StackMin<T>::min() {
+        return m_min.top();
+    }
+
+    template<typename T>
+    T StackMin<T>::top() {
+        return m_data.top();
+    }
 }
 
 

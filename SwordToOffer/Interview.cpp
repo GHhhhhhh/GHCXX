@@ -19,7 +19,32 @@ namespace swordToOffer {
             pRoot = new BinaryTreeNode;
             pRoot->m_nValue = ch - 48;
             pRoot->m_pLeft = createBinaryTreeNodebyPre();
-            pRoot->m_pRight= createBinaryTreeNodebyPre();
+            pRoot->m_pRight = createBinaryTreeNodebyPre();
+        }
+        return pRoot;
+    }
+
+
+    BinaryTreeNode* createBinaryTreeNodebyPre(char *str) {
+        if (str == nullptr)
+            return nullptr;
+        int index = 0;
+        BinaryTreeNode *pRoot = createBinaryTreeNodebyPreCore(str, &index);
+        return pRoot;
+    }
+
+    BinaryTreeNode* createBinaryTreeNodebyPreCore(char *str, int *index) {
+        BinaryTreeNode *pRoot = nullptr;
+        if (str[*index] == '\0' || str[*index] == '#') {
+            *index+=1;
+            return pRoot;
+        }
+        if (str[*index] != '#') {
+            pRoot = new BinaryTreeNode;
+            pRoot->m_nValue = str[*index] - 48;
+            *index += 1;
+            pRoot->m_pLeft = createBinaryTreeNodebyPreCore(str, index);
+            pRoot->m_pRight = createBinaryTreeNodebyPreCore(str, index);
         }
         return pRoot;
     }
@@ -873,6 +898,83 @@ namespace swordToOffer {
         }
         return isEqual;
     }
+
+    void MirrorRecursively(BinaryTreeNode* pRoot) {
+        if (pRoot == nullptr)
+            return;
+        BinaryTreeNode *pTemp;
+        pTemp = pRoot->m_pLeft;
+        pRoot->m_pLeft = pRoot->m_pRight;
+        pRoot->m_pRight = pTemp;
+        MirrorRecursively(pRoot->m_pLeft);
+        MirrorRecursively(pRoot->m_pRight);
+    }
+
+    bool isSymmetrical(BinaryTreeNode* pRoot) {
+        return isSymmetrical(pRoot, pRoot);
+    }
+    bool isSymmetrical(BinaryTreeNode* pRoot1, BinaryTreeNode* pRoot2) {
+        if (pRoot1 == nullptr && pRoot2 == nullptr)
+            return true;
+        if (pRoot1 == nullptr || pRoot2 == nullptr)
+            return false;
+        if (pRoot1->m_nValue != pRoot2->m_nValue)
+            return false;
+        return isSymmetrical(pRoot1->m_pLeft, pRoot2->m_pRight) && isSymmetrical(pRoot1->m_pRight, pRoot2->m_pLeft);
+    }
+
+    void PrintMatrixClockwisely(int **numbers, int cols, int rows) {
+        if (numbers == nullptr || cols <= 0 || rows <= 0)
+            return;
+        int start = 0;
+        while (cols > start * 2 && rows > start * 2) {
+            PrintMatrixCircle(numbers, cols, rows, start);
+            ++start;
+        }
+    }
+    //****************************************
+    void PrintMatrixCircle(int **numbers, int cols, int rows, int start) {
+        int endX = cols - start - 1;
+        int endY = rows - start - 1;
+        for (int i = start; i <= endX; ++i) {
+            printf("%d ", numbers[start][i]);
+        }
+        if (start - endY) {
+            for (int i = start + 1; i <= endY; ++i) {
+                printf("%d ", numbers[i][endX]);
+            }
+        }
+
+        if (start < endX && start < endY) {
+            for (int i = endX - 1; i >= start; --i) {
+                printf("%d ", numbers[endY][i]);
+            }
+        }
+
+        if (start < endX && start < endY - 1) {
+            for (int i = endY - 1; i >= start + 1; --i) {
+                printf("%d ", numbers[i][start]);
+            }
+        }
+//        //print a row
+//        for (int i = start; i < cols - start; ++i) {
+//            printf("%d ", numbers[start][i]);
+//        }
+//        // print a col rows - 1 - start
+//        for (int j = start + 1; j < rows - start; ++j) {
+//            printf("%d ", numbers[j][rows - 1 - start]);
+//        }
+//
+//        // print bottom
+//        for (int i = cols - start - 2; i >= 0 + start; --i) {
+//            printf("%d ", numbers[cols - start - 1][i]);
+//        }
+//        //print left
+//        for (int j = rows - start - 2; j >= 1 + start; --j) {
+//            printf("%d ", numbers[j][start]);
+//        }
+    }
+
 }
 
 

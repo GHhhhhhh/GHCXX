@@ -75,3 +75,28 @@ ListNode *head = newListNode(1);
             pHead = pHead->m_pNext;
         }
         err_msg("asd");
+
+
+         int numbers[4][4] = {{1,2,3,4},{5,6,7,8}, {9,10,11,12}, {13,14,15,16}};
+            int **nums = new int*[4];
+            for (int i = 0; i < 4; ++i)
+                nums[i] = new int[4];
+            int k = 1;
+            for (int i = 0; i < 4; ++i)
+                for (int j = 0; j < 4; ++j) {
+                    nums[i][j] = k++;
+                }
+
+            k = 1;
+            int **nums2 = new int*[5];
+            for (int i = 0; i < 3; ++i)
+                nums2[i] = new int[5];
+
+            for (int i = 0; i < 3; ++i)
+                for (int j = 0; j < 5; ++j) {
+                    nums2[i][j] = k++;
+                }
+
+            PrintMatrixClockwisely(nums2, 5, 3);
+            printf("\n");
+            PrintMatrixClockwisely(nums, 4, 4);

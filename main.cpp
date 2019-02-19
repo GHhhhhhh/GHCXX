@@ -7,14 +7,25 @@
 #include "SwordToOffer/Interview.h"
 using namespace std;
 using namespace swordToOffer;
-int main(int argc, char* argv[]) {
-    char *c = "889##24##7##7##";
-    BinaryTreeNode *pRoot1 = createBinaryTreeNodebyPre();
-    BinaryTreeNode *pRoot2 = createBinaryTreeNodebyPre();
-//    PreBinaryTree(pRoot1);
-//    PreBinaryTree(pRoot2);
-//    gh::print(HasSubtree(pRoot1, pRoot2));
 
+int main(int argc, char* argv[]) {
+   StackMin <int>stackMin;
+   stackMin.push(5);
+   stackMin.push(2);
+   stackMin.push(6);
+   stackMin.push(1);
+
+   gh::print(stackMin.top());
+   gh::print(stackMin.min());
+   stackMin.pop();
+   gh::print(stackMin.top());
+   gh::print(stackMin.min());
+   stackMin.pop();
+   gh::print(stackMin.top());
+   gh::print(stackMin.min());
+   stackMin.pop();
+   gh::print(stackMin.top());
+   gh::print(stackMin.min());
 }
 
 //889##24##7##7## 89##2##
