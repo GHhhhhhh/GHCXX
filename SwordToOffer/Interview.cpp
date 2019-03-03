@@ -975,6 +975,103 @@ namespace swordToOffer {
 //        }
     }
 
+    bool isStackOrder(const int *pPush, const int *pPop, int length) {
+        if (pPush == nullptr || pPop == nullptr || length <= 0)
+            return false;
+        const int *pNextPush = pPush;
+        const int *pNextPop = pPop;
+        std::stack <int>stack;
+        while (pNextPop - pPop < length) {
+            while (stack.empty() || stack.top() != *pNextPop) {
+                if (pNextPush - pPush == length)
+                    break;
+                stack.push(*pNextPush);
+                ++pNextPush;
+            }
+            if (stack.top() != *pNextPop)
+                break;
+            stack.pop();
+            ++pNextPop;
+    }
+        return stack.empty() && (pNextPop - pPop) == length;
+    }
+
+    void PrintFromTopToBottom(BinaryTreeNode *pTreeRoot) {
+        if (pTreeRoot == nullptr)
+            return;
+        std::deque<BinaryTreeNode*> deque;
+        deque.emplace_back(pTreeRoot);
+        while(!deque.empty()) {
+            BinaryTreeNode* root = deque.front();
+            printf("%d ", root->m_nValue);
+            deque.pop_front();
+            if (root->m_pLeft)
+                deque.emplace_back(root->m_pLeft);
+            if (root->m_pRight)
+                deque.emplace_back(root->m_pRight);
+        }
+    }
+
+    void PrintFromTopToBottom2(BinaryTreeNode *pTreeRoot) {
+        if (pTreeRoot == nullptr)
+            return;
+        std::deque<BinaryTreeNode*> deque;
+        deque.emplace_back(pTreeRoot);
+        int nextLevel = 0;
+        int toBePrint = 1;
+        while(!deque.empty()) {
+            BinaryTreeNode* root = deque.front();
+            printf("%d ", root->m_nValue);
+            deque.pop_front();
+
+            if (root->m_pLeft) {
+                deque.emplace_back(root->m_pLeft);
+                ++nextLevel;
+            }
+            if (root->m_pRight) {
+                deque.emplace_back(root->m_pRight);
+                ++nextLevel;
+            }
+            --toBePrint;
+            if (toBePrint == 0) {
+                printf("\n");
+                toBePrint = nextLevel;
+                nextLevel = 0;
+            }
+        }
+    }
+
+    void PrintFromTopToBottom3(BinaryTreeNode *pTreeRoot) {
+        if (pTreeRoot == nullptr)
+            return;
+        std::stack<BinaryTreeNode*> stack[2];
+        stack[0].push(pTreeRoot);
+        int current = 0;
+        int next = 1;
+        while (!stack[0].empty() || !stack[1].empty()) {
+            BinaryTreeNode *root = stack[current].top();
+            printf("%d", root->m_nValue);
+            stack[current].pop();
+            if (current) {
+                if (root->m_pLeft)
+                   stack[next].push(root->m_pLeft);
+                if (root->m_pRight)
+                   stack[next].push(root->m_pRight);
+            } else {
+                if (root->m_pRight)
+                    stack[next].push(root->m_pRight);
+                if (root->m_pLeft)
+                    stack[next].push(root->m_pLeft);
+            }
+            if (stack[current].empty()) {
+                printf("\n");
+                current = 1 - current;
+                next = 1 - next;
+            }
+        }
+
+    }
+
 }
 
 

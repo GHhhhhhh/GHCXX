@@ -26,6 +26,7 @@ namespace swordToOffer {
     BinaryTreeNode* createBinaryTreeNodebyPre();
 
     BinaryTreeNode* createBinaryTreeNodebyPre(char *str);
+
     BinaryTreeNode* createBinaryTreeNodebyPreCore(char *str, int *index);
 
     void addListNode(ListNode* pHead, ListNode* newlistNode);
@@ -257,6 +258,18 @@ namespace swordToOffer {
     T StackMin<T>::top() {
         return m_data.top();
     }
+
+    //31
+    bool isStackOrder(const int *pPush, const int *pPop, int length);
+
+    //32
+    void PrintFromTopToBottom(BinaryTreeNode *pTreeRoot);
+
+    //32 (2)
+    void PrintFromTopToBottom2(BinaryTreeNode *pTreeRoot);
+
+    //32 (3)
+    void PrintFromTopToBottom3(BinaryTreeNode *pTreeRoot);
 }
 
 

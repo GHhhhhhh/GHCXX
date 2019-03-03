@@ -100,3 +100,7 @@ ListNode *head = newListNode(1);
             PrintMatrixClockwisely(nums2, 5, 3);
             printf("\n");
             PrintMatrixClockwisely(nums, 4, 4);
+            //31
+               int pPush[5] = {1,2,3,4,5};
+               int pPop[5] = {4,5,5,1,2};
+               gh::print(isStackOrder(pPush,pPop,5));

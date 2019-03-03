@@ -9,23 +9,10 @@ using namespace std;
 using namespace swordToOffer;
 
 int main(int argc, char* argv[]) {
-   StackMin <int>stackMin;
-   stackMin.push(5);
-   stackMin.push(2);
-   stackMin.push(6);
-   stackMin.push(1);
 
-   gh::print(stackMin.top());
-   gh::print(stackMin.min());
-   stackMin.pop();
-   gh::print(stackMin.top());
-   gh::print(stackMin.min());
-   stackMin.pop();
-   gh::print(stackMin.top());
-   gh::print(stackMin.min());
-   stackMin.pop();
-   gh::print(stackMin.top());
-   gh::print(stackMin.min());
+   BinaryTreeNode *root = createBinaryTreeNodebyPre("1248##9##50##1##362##3##74##5##");
+   PrintFromTopToBottom3(root);
 }
 
-//889##24##7##7## 89##2##
+//889##24##7##7## 89##2##  1248##9##50##1##362##3##74##5##
+
