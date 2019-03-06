@@ -1072,6 +1072,61 @@ namespace swordToOffer {
 
     }
 
+    bool VerifySquenceOFBST(std::vector<int> &number) {
+        if (number.size() == 0)
+            return false;
+        int root = number.back();
+        int i = 0;
+        while(number[i] < root) {
+            ++i;
+        }
+        int j = i;
+        while (j < number.size() - 1) {
+            if (number[j++] < root)
+                return false;
+        }
+        bool left = true;
+        std::vector<int> arrayLeft;
+        for (int i1 = 0; i1 < i; ++i1)
+            arrayLeft.emplace_back(number[i1]);
+        if (i > 0)
+            left = VerifySquenceOFBST(arrayLeft);
+
+        bool right = true;
+        std::vector<int> arrayRight;
+        for (int i1 = 0; i1 < number.size() - i - 1; ++i1)
+            arrayRight.emplace_back(number[i + i1]);
+        if (i < number.size() - 1)
+            right = VerifySquenceOFBST(arrayRight);
+
+        return left && right;
+    }
+
+    void FindPath(BinaryTreeNode* root, int expectNumber) {
+        if (root == nullptr)
+            return;
+        std::vector<int> path;
+        FindPathCore(root, expectNumber, path);
+    }
+
+    void FindPathCore(BinaryTreeNode* root, int expectNumber, std::vector<int> &path) {
+        if (root == nullptr)
+            return;
+        path.emplace_back(root->m_nValue);
+        int total = 0;
+        for (auto &i: path) {
+            total += i;
+        }
+        if (root->m_pRight == nullptr && root->m_pLeft == nullptr && total == expectNumber) {
+            for (auto &i : path)
+                printf("%d ", i);
+            printf("\n");
+        }
+        FindPathCore(root->m_pLeft, expectNumber, path);
+        FindPathCore(root->m_pRight, expectNumber, path);
+        path.pop_back();
+    }
+
 }
 
 

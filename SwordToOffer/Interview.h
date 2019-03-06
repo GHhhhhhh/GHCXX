@@ -8,6 +8,7 @@
 #include <iostream>
 #include <stack>
 #include <queue>
+#include <array>
 #include "../ghlib/gh.h"
 
 namespace swordToOffer {
@@ -15,6 +16,12 @@ namespace swordToOffer {
         int m_nValue;
         BinaryTreeNode* m_pLeft;
         BinaryTreeNode* m_pRight;
+    };
+
+    struct ComplexListNode {
+        int m_nValue;
+        ComplexListNode *m_pNext;
+        ComplexListNode *m_pSlibling;
     };
 
     struct ListNode {
@@ -270,6 +277,20 @@ namespace swordToOffer {
 
     //32 (3)
     void PrintFromTopToBottom3(BinaryTreeNode *pTreeRoot);
+
+    //33
+    bool VerifySquenceOFBST(std::vector<int> &number);
+
+    //34
+    void FindPath(BinaryTreeNode* root, int expectNumber);
+    void FindPathCore(BinaryTreeNode* root, int expectNumber, std::vector<int> &);
+
+    //35
+    void CloneNodes(ComplexListNode *pHead);
+    void ConnectSiblingNodes(ComplexListNode *pHead);
+    ComplexListNode* ReconnectNodes(ComplexListNode *pHead);
+    ComplexListNode* Clone(ComplexListNode *pHead);
+
 }
 
 
