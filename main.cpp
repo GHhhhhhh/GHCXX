@@ -35,8 +35,32 @@ int main(int argc, char* argv[]) {
 //    number[6] = 8;
 //    gh::print(VerifySquenceOFBST(number));
 //    gh::print(VerifySquenceOFBST(number2));
-   BinaryTreeNode *root = createBinaryTreeNodebyPre("134##2##5##");
-   FindPath(root, 6);
+//   BinaryTreeNode *root = createBinaryTreeNodebyPre("134##2##5##");
+//   FindPath(root, 6);
+    ComplexListNode *pHead = new ComplexListNode();
+    pHead->m_nValue = 1;
+    ComplexListNode *p1 = new ComplexListNode();
+    p1->m_nValue = 2;
+    ComplexListNode *p2 = new ComplexListNode();
+    p2->m_nValue = 3;
+    ComplexListNode *p3 = new ComplexListNode();
+    p3->m_nValue = 4;
+    ComplexListNode *p4 = new ComplexListNode();
+    p4->m_nValue = 5;
+    pHead->m_pNext = p1;
+    p1->m_pNext = p2;
+    p2->m_pNext = p3;
+    p3->m_pNext = p4;
+    ComplexListNode * pCopy = Clone(pHead);
+    while (pHead != nullptr) {
+        printf("%d ", pHead->m_nValue);
+        pHead = pHead->m_pNext;
+    }
+    printf("\n");
+    while (pCopy != nullptr) {
+        printf("%d ", pCopy->m_nValue);
+        pCopy = pCopy->m_pNext;
+    }
 
 
 }

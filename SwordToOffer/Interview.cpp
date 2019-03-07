@@ -1127,6 +1127,52 @@ namespace swordToOffer {
         path.pop_back();
     }
 
+    void CloneNodes(ComplexListNode *pHead) {
+        ComplexListNode *p = pHead;
+        while (p != nullptr) {
+            ComplexListNode *pTemp = p->m_pNext;
+            ComplexListNode *pCopy = new ComplexListNode;
+            pCopy->m_nValue = p->m_nValue;
+            p->m_pNext = pCopy;
+            pCopy->m_pNext = pTemp;
+            p = pCopy->m_pNext;
+        }
+    }
+    void ConnectSiblingNodes(ComplexListNode *pHead) {
+        ComplexListNode *p = pHead;
+        while (p != nullptr) {
+            if (p->m_pSlibling != nullptr) {
+                p->m_pNext->m_pSlibling = p->m_pSlibling->m_pNext;
+            }
+            p = p->m_pNext;
+        }
+    }
+    ComplexListNode* ReconnectNodes(ComplexListNode *pHead) {
+        int k = 1;
+        ComplexListNode *p1 = pHead;
+        ComplexListNode *pHead2 = pHead->m_pNext;
+        ComplexListNode *p2 = pHead2;
+        p1->m_pNext = p2->m_pNext;
+        while (p1->m_pNext != nullptr) {
+            if (k % 2 == 0) {
+                p2->m_pNext = p1->m_pNext;
+                p2 = p2->m_pNext;
+                p1->m_pNext = p2->m_pNext;
+            } else
+                p1 = p1->m_pNext;
+            ++k;
+        }
+        return pHead2;
+
+    }
+    ComplexListNode* Clone(ComplexListNode *pHead) {
+        if (pHead == nullptr)
+            return nullptr;
+        CloneNodes(pHead);
+        ConnectSiblingNodes(pHead);
+        return ReconnectNodes(pHead);
+    }
+
 }
 
 
