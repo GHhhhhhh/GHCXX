@@ -1173,6 +1173,78 @@ namespace swordToOffer {
         return ReconnectNodes(pHead);
     }
 
+    BinaryTreeNode *Convert(BinaryTreeNode* pRootOfTree) {
+        if (pRootOfTree == nullptr)
+            return nullptr;
+//        BinaryTreeNode *pRoot = pRootOfTree;
+        BinaryTreeNode *pLastNodeList = nullptr;
+        ConvertNode(pRootOfTree, &pLastNodeList);
+        while (pLastNodeList->m_pLeft != nullptr && pLastNodeList != nullptr)
+            pLastNodeList = pLastNodeList->m_pLeft;
+        return pLastNodeList;
+    }
+
+    void ConvertNode(BinaryTreeNode* pNode, BinaryTreeNode** pLastNodeInList) {
+        if (pNode == nullptr)
+            return ;
+        BinaryTreeNode *pCurrent = pNode;
+        if (pCurrent->m_pLeft)
+            ConvertNode(pCurrent->m_pLeft, pLastNodeInList);
+
+        pCurrent->m_pLeft = *pLastNodeInList;
+        if (*pLastNodeInList)
+            (*pLastNodeInList)->m_pRight = pCurrent;
+        *pLastNodeInList = pCurrent;
+
+        if (pCurrent->m_pRight)
+            ConvertNode(pCurrent->m_pRight, pLastNodeInList);
+
+    }
+
+    std::string Serialize(BinaryTreeNode* pRoot) {
+        std::string tree;
+        Serialize(pRoot, tree);
+        tree.pop_back();
+        return tree;
+    }
+    void Serialize(BinaryTreeNode* pRoot, std::string& tree) {
+        if (pRoot == nullptr) {
+            tree.append("#,");
+            return;
+        }
+        tree.append(std::to_string(pRoot->m_nValue) + ",");
+        Serialize(pRoot->m_pLeft, tree);
+        Serialize(pRoot->m_pRight, tree);
+    }
+
+    BinaryTreeNode* Deserialize(BinaryTreeNode** pRoot, std::string& tree) {
+        std::list<std::string> treeNode = gh::split(tree, ",");
+        Deserialize(pRoot, treeNode);
+        return *pRoot;
+    }
+
+    void Deserialize(BinaryTreeNode** pRoot, std::list<std::string> &treeNode) {
+        int number;
+        if (treeNode.front() != "#") {
+            number = std::stoi(treeNode.front().c_str());
+            *pRoot = new BinaryTreeNode;
+            (*pRoot)->m_nValue = number;
+            (*pRoot)->m_pRight = nullptr;
+            (*pRoot)->m_pLeft = nullptr;
+            treeNode.pop_front();
+            Deserialize(&(*pRoot)->m_pLeft, treeNode);
+            Deserialize(&(*pRoot)->m_pRight, treeNode);
+        } else {
+            treeNode.pop_front();
+
+        }
+    }
+
+    void Permutation(std::string& str) {
+        if (str.size() == 0)
+            return;
+        printf("%c ", str.front());
+    }
 }
 
 

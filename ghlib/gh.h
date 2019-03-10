@@ -8,6 +8,8 @@
 #include <iostream>
 #include <sys/time.h>
 #include <fstream>
+#include <vector>
+#include <list>
 namespace gh{
     void print();
     template <typename T, typename... Types>
@@ -40,7 +42,7 @@ namespace gh{
         double time2 = gh::current_time();
         gh::print("function time: ", time2 - time1);
     }
-
+    std::list<std::string> split(const std::string& str, const std::string& delim);
 }
 
 #endif //GH_CODE_GH_H

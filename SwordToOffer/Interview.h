@@ -291,6 +291,20 @@ namespace swordToOffer {
     ComplexListNode* ReconnectNodes(ComplexListNode *pHead);
     ComplexListNode* Clone(ComplexListNode *pHead);
 
+    //36
+    BinaryTreeNode *Convert(BinaryTreeNode* pRootOfTree);
+    void ConvertNode(BinaryTreeNode* pNode, BinaryTreeNode** pLastNodeInList);
+
+    //37
+    std::string Serialize(BinaryTreeNode* pRoot);
+    void Serialize(BinaryTreeNode* pRoot, std::string& tree);
+
+    BinaryTreeNode* Deserialize(BinaryTreeNode**, std::string& tree);
+    void Deserialize(BinaryTreeNode** pRoot, std::list<std::string> &treeNode);
+
+    //38
+    void Permutation(std::string& str);
+
 }
 
 
