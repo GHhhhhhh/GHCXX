@@ -1240,10 +1240,94 @@ namespace swordToOffer {
         }
     }
 
-    void Permutation(std::string& str) {
-        if (str.size() == 0)
+//    void Permutation(std::string& str) {
+//        if (str.size() == 0)
+//            return;
+//        int index = 1;
+//        Permutation(str, index);
+//    }
+//
+//    void Permutation(std::string& str, int &index) {
+//        if (index == str.length())
+//            gh::print(str);
+//        else
+//            for (int i = 0; i < str.length(); ++i) {
+//                char c = str.back();
+//                Permutation(str, ++index);
+//                str[str.length() - i] = c;
+//            }
+//    }
+
+    void Permutation(char *pStr) {
+        if (pStr == nullptr)
             return;
-        printf("%c ", str.front());
+        Permutation(pStr, pStr);
+    }
+
+    void Permutation(char *pStr, char* pBegin) {
+        if (*pBegin == '\0')
+            printf("%s\n", pStr);
+        else {
+            for (char *pCh = pBegin; *pCh != '\0'; ++pCh) {
+                char pTemp = *pCh;
+                *pCh = *pBegin;
+                *pBegin = pTemp;
+
+                Permutation(pStr, pBegin + 1);
+
+                pTemp = *pCh;
+                *pCh = *pBegin;
+                *pBegin = pTemp;
+            }
+        }
+    }
+
+    void Permutation(std::string& str) {
+        if (str.length() == 0)
+            return;
+        int i = 0;
+        Permutation(str, i);
+    }
+    void Permutation(std::string& str, int &i) {
+        if (i >= str.length())
+            return;
+        if (i == str.length() - 1)
+            gh::print(str);
+        for (int j = i;j < str.length(); ++j) {
+            char temp = str[i];
+            str[i] = str[j];
+            str[j] = temp;
+            Permutation(str, ++i);
+            --i;
+            temp = str[i];
+            str[i] = str[j];
+            str[j] = temp;
+        }
+    }
+
+    void Combination(char* str) {
+        if (str == nullptr)
+            return;
+        int length = strlen(str);
+        std::vector<char> vector;
+        for (int i = 1; i <= length; ++i)
+            Combination(str, i, vector);
+
+    }
+    void Combination(char* str, int i, std::vector<char> &vector) {
+        if (i == 0) {
+            for (auto &c: vector)
+                printf("%c ", c);
+            printf("\n");
+            return;
+        }
+        if (*str == '\0')
+            return;
+
+        vector.emplace_back(*str);
+        Combination(str + 1, i - 1, vector);
+        vector.pop_back();
+        Combination(str + 1, i, vector);
     }
 }
 

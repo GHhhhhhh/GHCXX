@@ -303,7 +303,17 @@ namespace swordToOffer {
     void Deserialize(BinaryTreeNode** pRoot, std::list<std::string> &treeNode);
 
     //38
+//    void Permutation(std::string& str);
+//    void Permutation(std::string& str, int &index);
+
+    void Permutation(char *pStr);
+    void Permutation(char *pStr, char* pBegin);
+
     void Permutation(std::string& str);
+    void Permutation(std::string& str, int &i);
+
+    void Combination(char* str);
+    void Combination(char* str, int i, std::vector<char> &vector);
 
 }
 

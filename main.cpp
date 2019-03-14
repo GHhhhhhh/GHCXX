@@ -9,8 +9,10 @@ using namespace std;
 using namespace swordToOffer;
 
 int main(int argc, char* argv[]) {
-
-
+//    char *p = "abc";
+//    Permutation(p);
+    std::string str("abc");
+    Combination("abc");
 
 }
 
