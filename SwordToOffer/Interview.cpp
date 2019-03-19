@@ -1329,6 +1329,48 @@ namespace swordToOffer {
         vector.pop_back();
         Combination(str + 1, i, vector);
     }
+
+    int MoreThanHalfNum(int *numbers, int length, int& result) {
+        if (numbers == nullptr)
+            return -1;
+        result = numbers[0];
+        int times = 0;
+        for (int i = 1; i < length; ++i) {
+            if (times == 0) {
+                result = numbers[i];
+                ++times;
+            } else if (result == numbers[i])
+                ++times;
+            else
+                --times;
+        }
+        //check half
+        int resultTimes = 0;
+        for (int i = 0; i < length; ++i) {
+            if (numbers[i] == result)
+                ++resultTimes;
+        }
+        if (resultTimes > length/2)
+            return 0;
+        return -1;
+    }
+
+    void GetLeastNumbers(const std::vector<int> &data, std::multiset<int, std::greater<>> &lastNumbers, int k) {
+        if (k < 0 || data.empty())
+            return;
+        for (auto &num: data) {
+            if (lastNumbers.size() < 4) {
+                lastNumbers.emplace(num);
+                continue;
+            } else {
+                if (num < *lastNumbers.begin()) {
+                    lastNumbers.erase(lastNumbers.begin());
+                    lastNumbers.emplace(num);
+                }
+            }
+        }
+    }
+
 }
 
 

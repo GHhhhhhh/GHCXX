@@ -7,8 +7,10 @@
 
 #include <iostream>
 #include <stack>
+#include <algorithm>
 #include <queue>
 #include <array>
+#include <set>
 #include "../ghlib/gh.h"
 
 namespace swordToOffer {
@@ -314,6 +316,12 @@ namespace swordToOffer {
 
     void Combination(char* str);
     void Combination(char* str, int i, std::vector<char> &vector);
+
+    //39
+    int MoreThanHalfNum(int *numbers, int length, int& result);
+
+    //40
+    void GetLeastNumbers(const std::vector<int> &data, std::multiset<int, std::greater<>> & lastNumbers, int k);
 
 }
 
