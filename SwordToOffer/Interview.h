@@ -323,6 +323,43 @@ namespace swordToOffer {
     //40
     void GetLeastNumbers(const std::vector<int> &data, std::multiset<int, std::greater<>> & lastNumbers, int k);
 
+    template <typename T>
+    class DynamicArray{
+    public:
+        void Insert(T num);
+        double GetMedian();
+    private:
+        std::multiset<T, std::greater<>> max_;
+        std::multiset<T, std::less<>> min_;
+        int count = 0;
+    };
+//41
+    template<typename T>
+    void DynamicArray<T>::Insert(T num) {
+        if (count++ % 2 == 0) {
+            if (num > *min_.begin()){
+                min_.emplace(num);
+                max_.emplace(*min_.begin());
+                min_.erase(*min_.begin());
+            } else
+                max_.emplace(num);
+        } else {
+            if (num < *max_.begin()) {
+                max_.emplace(num);
+                min_.emplace(*max_.begin());
+                min_.erase(*min_.begin());
+            }else
+                min_.emplace(num);
+        }
+    }
+
+    template<typename T>
+    double DynamicArray<T>::GetMedian() {
+        return count % 2 == 0 ? (*min_.begin() + *max_.begin())/2.0 : (min_.size() > max_.size() ? *min_.begin() : *max_.begin());
+    }
+    //42
+    int FindGreatestSumOfSubArray(int *pData, int nLength);
+
 }
 
 

@@ -10,14 +10,8 @@ using namespace std;
 using namespace swordToOffer;
 
 int main(int argc, char* argv[]) {
-    std::multiset<int, greater<>> multiset1;
-    std::vector<int> data;
-    for (int i = 0; i < 100; ++i) {
-        data.emplace_back(i);
-    }
-    GetLeastNumbers(data, multiset1, 4);
-    for (auto i: multiset1)
-        gh::print(i);
+    int array[8] = {1,-2,3,10,-4,7,2,-5};
+    gh::print(FindGreatestSumOfSubArray(array, 8));
 
 
 

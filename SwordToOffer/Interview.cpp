@@ -1371,6 +1371,20 @@ namespace swordToOffer {
         }
     }
 
+    int FindGreatestSumOfSubArray(int *pData, int nLength) {
+        int curSum = 0;
+        int nGreatestSum = 0;
+        for (int i = 0; i < nLength; ++i) {
+            if (curSum <= 0)
+                curSum = pData[i];
+            else
+                curSum += pData[i];
+            if (nGreatestSum < curSum)
+                nGreatestSum = curSum;
+        }
+        return nGreatestSum;
+    }
+
 }
 
 
