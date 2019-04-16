@@ -7,5 +7,9 @@
 
 namespace apue {
     int ls(int argc, char* argv[]);
+
+    void charatatime(char *str);
+
+    void testFork();
 }
 #endif //GH_CODE_APUELEARN_H

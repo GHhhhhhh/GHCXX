@@ -1,18 +1,22 @@
 #include <iostream>
 #include <algorithm>
 #include <dirent.h>
+#include <sys/wait.h>
 #include <set>
 //#include "apueLearn.h"
 //#include "unpLearn.h"
 #include "ghlib/gh.h"
 #include "SwordToOffer/Interview.h"
+#include "apue.h"
 using namespace std;
 using namespace swordToOffer;
+
 void getArray(long *array, int length);
 long com(int n);
 int main(int argc, char* argv[]) {
     gh::print(GetTranslationCount(112258));
 
+    
 
 }
 
