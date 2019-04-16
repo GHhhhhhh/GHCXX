@@ -360,6 +360,20 @@ namespace swordToOffer {
     //42
     int FindGreatestSumOfSubArray(int *pData, int nLength);
 
+    //44
+    int digitAtIndex(int index);
+    int countOfIntegers(int digits);
+    int digitAtIndex(int index, int digits);
+    int beginNumber(int digits);
+
+    //46
+    int GetTranslationCount(int number);
+    int GetTranslationCount(const std::string& number);
+    //49
+    int GetUglyNumber(int index);
+    int GetUglyNumber_solution2(int index);
+    int uglyMin(int, int ,int);
+
 }
 
 

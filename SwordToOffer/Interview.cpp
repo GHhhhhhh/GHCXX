@@ -1385,6 +1385,130 @@ namespace swordToOffer {
         return nGreatestSum;
     }
 
+    int digitAtIndex(int index) {
+        if (index < 0)
+            return -1;
+        int digits = 1;
+        while(true) {
+            int numbers = countOfIntegers(digits);
+            if (index < numbers * digits)
+                return digitAtIndex(index, digits);
+            index -= digits * numbers;
+            digits++;
+        }
+        return -1;
+    }
+
+    int countOfIntegers(int digits) {
+        if (digits == 1)
+            return 10;
+        int count = (int)std::pow(10, digits - 1);
+        return 9 * count;
+    }
+
+    int digitAtIndex(int index, int digits) {
+        int number = beginNumber(digits) + index/digits;
+        int indexFromRight = digits - index % digits;
+        for (int i = 1; i < indexFromRight; ++i)
+            number /= 10;
+        return number % 10;
+    }
+    int beginNumber(int digits) {
+        if (digits == 1)
+            return 0;
+        return (int)std::pow(10, digits - 1);
+    }
+
+    int GetUglyNumber(int index) {
+        if (index < 0)
+            return -1;
+        int *uglyArray = new int[index];
+        uglyArray[0] = 1;
+        int ugly2 = 1;
+        int ugly3 = 1;
+        int ugly5 = 1;
+        int ugly_index2 = 0;
+        int ugly_index3 = 0;
+        int ugly_index5 = 0;
+        int min;
+        for (int i = 1; i < index; ++i) {
+            min = uglyMin(ugly2 * 2, ugly3 * 3, ugly5 * 5);
+            uglyArray[i] = min;
+            while (ugly2 * 2 <= uglyArray[i])
+                ugly2 = uglyArray[ugly_index2++];
+            while (ugly3 * 3 <= uglyArray[i])
+                ugly3 = uglyArray[ugly_index3++];
+            while (ugly5 * 5 <= uglyArray[i])
+                ugly5 = uglyArray[ugly_index5++];
+        }
+        int uglyIndex = uglyArray[index - 1];
+        delete[] uglyArray;
+        return uglyIndex;
+    }
+    int GetUglyNumber_solution2(int index) {
+        if (index < 0)
+            return -1;
+        int *uglyArray = new int[index];
+        uglyArray[0] = 1;
+        int *ugly2 = uglyArray;
+        int *ugly3 = uglyArray;
+        int *ugly5 = uglyArray;
+        for (int i = 1; i < index; ++i) {
+            int min = uglyMin(*ugly2 * 2, *ugly3 * 3, *ugly5 * 5);
+            uglyArray[i] = min;
+            while (*ugly2 * 2 <= min)
+                ++ugly2;
+            while (*ugly3 * 3 <= min)
+                ++ugly3;
+            while (*ugly5 * 5 <= min)
+                ++ugly5;
+        }
+        int result = uglyArray[index - 1];
+        delete[] uglyArray;
+        return result;
+    }
+    int uglyMin(int ugly2, int ugly3, int ugly5) {
+        int min = ugly2 < ugly3 ? ugly2 : ugly3;
+        return min < ugly5 ? min : ugly5;
+    }
+
+    int GetTranslationCount(int number) {
+        if (number < 0)
+            return 0;
+        std::string numberString(std::to_string(number));
+        return GetTranslationCount(numberString);
+    }
+    int GetTranslationCount(const std::string& number) {
+//        int const length = 1;
+        int length = static_cast<int>(number.length());
+        int* counts = new int[length];
+        int count = 0;
+        for (int i = length - 1; i >= 0; --i) {
+            if (i < length - 1)
+                count = counts[i + 1];
+            else
+                count = 1;
+
+            if (i < length - 1) {
+                int num1 = number[i] - '0';
+                int num2 = number[i + 1] - '0';
+                int convert = num1 * 10 + num2;
+                if (convert >=10 && convert <= 25) {
+                    if (i < length - 2)
+                        count += counts[i + 2];
+                    else
+                        count += 1;
+                }
+            }
+            counts[i] = count;
+            gh::print(count);
+        }
+        count = counts[0];
+        delete[] counts;
+        return count;
+    }
+
+
 }
 
 
