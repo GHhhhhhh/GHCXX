@@ -369,10 +369,19 @@ namespace swordToOffer {
     //46
     int GetTranslationCount(int number);
     int GetTranslationCount(const std::string& number);
+
+    //47
+    int getMaxValue_solution(const int *values, int rows, int cols);
+
+    //48
+    int longestSubstringWithoutDuplicatiuon(const std::string& str);
+
     //49
     int GetUglyNumber(int index);
     int GetUglyNumber_solution2(int index);
     int uglyMin(int, int ,int);
+
+    char FirstNotRepeating(std::string &str);
 
 }
 

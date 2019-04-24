@@ -1508,6 +1508,68 @@ namespace swordToOffer {
         return count;
     }
 
+    int getMaxValue_solution(const int *values, int rows, int cols) {
+        if (values == nullptr || rows <= 0 || cols <= 0)
+            return 0;
+        int *maxValues = new int[cols];
+        for (int i = 0; i < rows; ++i) {
+            for (int j = 0; j < cols; ++j) {
+                int up = 0;
+                int left = 0;
+                if (i > 0)
+                    up = maxValues[j];
+                if (j > 0);
+                    left = maxValues[j - 1];
+                maxValues[j] = std::max(up, left) + values[i * cols + j];
+            }
+        }
+        int maxValue = maxValues[cols - 1];
+//            for (int i = 0; i < cols; ++i)
+//                gh::print("maxValues: ", maxValues[i]);
+        delete[] maxValues;
+        return maxValue;
+    }
+
+    int longestSubstringWithoutDuplicatiuon(const std::string& str) {
+        int max = 1;
+        int currMax = 1;
+        int length = str.length();
+        for (int i = 1; i < length; ++i) {
+            bool isHave = false;
+            int d = 0;
+            for (int j = i - 1; j >= 0; --j) {
+                if (str[i] == str[j]) {
+                    isHave = true;
+                    d = i - j;
+                    currMax = 1;
+                     break;
+                }
+            }
+
+            if (isHave) {
+                if (d > currMax)
+                    currMax += 1;
+            } else {
+                currMax += 1;
+            }
+            max = max > currMax ? max : currMax;
+        }
+        return max;
+    }
+
+    char FirstNotRepeating(std::string &str) {
+        if (str.size() <= 0)
+            return '\0';
+        int hashMap[256] = {0};
+        for (auto c: str) {
+            hashMap[c]++;
+        }
+        for (int i = 0; i < 256; ++i) {
+            if (hashMap[i] == 1) {
+                return i;
+            }
+        }
+    }
 
 }
 
