@@ -383,6 +383,10 @@ namespace swordToOffer {
 
     char FirstNotRepeating(std::string &str);
 
+    //52
+    ListNode* FindFirstCommonNode(ListNode *pHead1, ListNode* pHead2);
+    int getListLength(ListNode *pHead);
+
 }
 
 

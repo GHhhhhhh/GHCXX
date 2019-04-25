@@ -1571,6 +1571,40 @@ namespace swordToOffer {
         }
     }
 
+    ListNode* FindFirstCommonNode(ListNode *pHead1, ListNode* pHead2) {
+        int p1Length = getListLength(pHead1);
+        int p2Length = getListLength(pHead2);
+        ListNode *p1 = pHead1;
+        ListNode *p2 = pHead2;
+        int i = p1Length - p2Length;
+        if (i > 0)
+            while(i--)
+                p1 = p1->m_pNext;
+        else {
+            i = -i;
+            while(i--)
+                p2 = p2->m_pNext;
+        }
+
+        ListNode *p;
+        while (p1->m_pNext != p2->m_pNext) {
+            p1 = p1->m_pNext;
+            p2 = p2->m_pNext;
+        }
+        p = p1->m_pNext;
+        return p;
+    }
+
+    int getListLength(ListNode *pHead) {
+        int length = 0;
+        ListNode *p = pHead;
+        while (p != nullptr) {
+            ++length;
+            p = p->m_pNext;
+        }
+        return length;
+    }
+
 }
 
 
