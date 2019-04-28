@@ -1605,6 +1605,83 @@ namespace swordToOffer {
         return length;
     }
 
+    int GetNumberOfK(int *data, int length, int k) {
+        if (data == nullptr || length <= 0)
+            return -1;
+        int startIndex = GetFirstK(data, length, k, 0, length - 1);
+        int lastIndex = GetLastK(data, length, k, 0, length - 1);
+        return lastIndex - startIndex + 1;
+    }
+
+
+    int GetFirstK(int *data, int length, int k, int start, int end) {
+        int middleIndex = (start + end)/2;
+        int middleData = data[middleIndex];
+        if (middleData == k) {
+            if ((middleIndex > 0 && data[middleIndex - 1] < k) || middleIndex == 0)
+                return middleIndex;
+            else
+                end = middleIndex - 1;
+        } else if(middleData < k) {
+            start = middleIndex + 1;
+        } else {
+            end = middleIndex - 1;
+        }
+        return GetFirstK(data, length, k, start, end);
+    }
+
+    int GetLastK(int *data, int length, int k, int start, int end) {
+        int middleIndex = (start + end)/2;
+        int middleData = data[middleIndex];
+        if (middleData == k) {
+            if ((middleIndex < length - 1 && data[middleIndex + 1] > k) || middleIndex == length - 1)
+                return middleIndex;
+            else
+                start = middleIndex + 1;
+        } else if(middleData < k) {
+            start = middleIndex + 1;
+        } else {
+            end = middleIndex - 1;
+        }
+        return GetLastK(data, length, k, start, end);
+    }
+
+    int GetMissingNumber(int *data, int length) {
+        if (data == nullptr || length <= 0)
+            return -1;
+        int left = 0;
+        int right = length - 1;
+        while (left <= right) {
+            int middleIndex = (right + left) / 2;
+            if (middleIndex != data[middleIndex]) {
+                if (middleIndex == 0 || data[middleIndex - 1] == middleIndex - 1)
+                    return middleIndex;
+                right = middleIndex - 1;
+            }
+            else
+                left = middleIndex + 1;
+        }
+        if (left == length)
+            return length;
+        return -1;
+    }
+
+    int GetNumberSameAsIndex(int *numbers, int length) {
+        if (numbers == nullptr || length <= 0)
+            return -1;
+        int left = 0;
+        int right = length - 1;
+        while (left <= right) {
+            int middleIndex = (left + right) >> 1;
+            if (middleIndex == numbers[middleIndex])
+                return middleIndex;
+            else if (numbers[middleIndex] < middleIndex)
+                left = middleIndex + 1;
+            else
+                right = middleIndex - 1;
+        }
+    }
+
 }
 
 

@@ -387,6 +387,14 @@ namespace swordToOffer {
     ListNode* FindFirstCommonNode(ListNode *pHead1, ListNode* pHead2);
     int getListLength(ListNode *pHead);
 
+//    53
+    int GetNumberOfK(int *data, int length, int k);
+    int GetLastK(int *data, int length, int k, int start, int end);
+    int GetFirstK(int *data, int length,int k, int start, int end);
+
+    int GetMissingNumber(int *data, int length);
+
+    int GetNumberSameAsIndex(int *numbers, int length);
 }
 
 
