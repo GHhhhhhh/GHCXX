@@ -19,9 +19,9 @@ int main(int argc, char* argv[]) {
 //    std::string str2 = "abaccdeff";
 //    gh::print(FirstNotRepeating(str2));
 
-    int a[6] = {-3,-1,1,3,5};
-
-    gh::print(GetNumberSameAsIndex(a, 5));
+    BinaryTreeNode *p = createBinaryTreeNodebyPre("532##4##76##8##");
+    gh::print(KthNode(p, 3)->m_nValue);
+    gh::print(IsBalanced(p));
 
 }
 

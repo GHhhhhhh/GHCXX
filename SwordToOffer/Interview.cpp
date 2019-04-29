@@ -1682,6 +1682,55 @@ namespace swordToOffer {
         }
     }
 
+    BinaryTreeNode* KthNode(BinaryTreeNode* pRoot, int k) {
+        if (pRoot == nullptr || k == 0)
+            return nullptr;
+        return KthNodeCore(pRoot, k);
+    }
+
+    BinaryTreeNode* KthNodeCore(BinaryTreeNode* pRoot, int &k) {
+        BinaryTreeNode *target = nullptr;
+        if (pRoot->m_pLeft != nullptr)
+            target =  KthNodeCore(pRoot->m_pLeft, k);
+        if (target == nullptr) {
+            if (k == 1)
+                target = pRoot;
+            k--;
+        }
+        if (target == nullptr && pRoot->m_pRight != nullptr)
+            target = KthNodeCore(pRoot->m_pRight, k);
+        return target;
+    }
+    int TreeDepth(BinaryTreeNode* pRoot) {
+        if (pRoot == nullptr)
+            return 0;
+        int left = TreeDepth(pRoot->m_pLeft);
+        int right = TreeDepth(pRoot->m_pRight);
+        return left > right ? left+1 : right+1;
+    }
+
+    bool IsBalanced(BinaryTreeNode* pRoot, int *pDepth) {
+        if (pRoot == nullptr) {
+            *pDepth = 0;
+            return true;
+        }
+        int left, right;
+        if(IsBalanced(pRoot->m_pLeft, &left) && IsBalanced(pRoot->m_pRight, &right)) {
+            int dis = right - left;
+            if (abs(dis) <= 1) {
+                *pDepth = 1 + (left > right) ? left : right;
+                return true;
+            }
+        }
+        return false;
+    }
+    bool IsBalanced(BinaryTreeNode* pRoot) {
+        int depth = 0;
+        bool res = IsBalanced(pRoot, &depth);
+        gh::print("depth:", depth);
+        return res;
+    }
+
 }
 
 

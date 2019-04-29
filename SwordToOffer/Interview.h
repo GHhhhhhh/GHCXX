@@ -395,6 +395,16 @@ namespace swordToOffer {
     int GetMissingNumber(int *data, int length);
 
     int GetNumberSameAsIndex(int *numbers, int length);
+
+    //54
+    BinaryTreeNode* KthNode(BinaryTreeNode* pRoot, int k);
+    BinaryTreeNode* KthNodeCore(BinaryTreeNode* pRoot, int &k);
+
+    //55
+    int TreeDepth(BinaryTreeNode* pRoot);
+
+    bool IsBalanced(BinaryTreeNode* pRoot, int *pDepth);
+    bool IsBalanced(BinaryTreeNode* pRoot);
 }
 
 
