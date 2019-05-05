@@ -405,6 +405,13 @@ namespace swordToOffer {
 
     bool IsBalanced(BinaryTreeNode* pRoot, int *pDepth);
     bool IsBalanced(BinaryTreeNode* pRoot);
+
+    //56
+    std::pair<int, int> FindNumsAppearOnce(std::vector<int> &nums);
+    bool IsBit1(int num, int index);
+
+    int FindNumsAppearThreeForOne(std::vector<int> &nums);
+
 }
 
 

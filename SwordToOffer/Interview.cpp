@@ -1727,10 +1727,55 @@ namespace swordToOffer {
     bool IsBalanced(BinaryTreeNode* pRoot) {
         int depth = 0;
         bool res = IsBalanced(pRoot, &depth);
-        gh::print("depth:", depth);
+//        gh::print("depth:", depth);
         return res;
     }
 
+    std::pair<int, int> FindNumsAppearOnce(std::vector<int> &nums) {
+        int resultExclusive = 0;
+        int resA = 0, resB = 0;
+        for (auto &i: nums)
+            resultExclusive ^= i;
+        int index = 0;
+        while ((resultExclusive & 1) != 1) {
+            resultExclusive = resultExclusive >> 1;
+            ++index;
+        }
+        for (auto &i: nums) {
+            if (IsBit1(i, index))
+                resA ^= i;
+            else
+                resB ^= i;
+        }
+        return std::make_pair(resA, resB);
+
+    }
+
+    bool IsBit1(int num, int index) {
+        num = num >> index;
+        return num & 1;
+    }
+
+    int FindNumsAppearThreeForOne(std::vector<int> &nums) {
+        if (nums.size() == 0)
+            return -1;
+        int bits[32] = {0};
+        for (auto num : nums) {
+            int bitMask = 1;
+            for (int i = 31; i >= 0; --i) {
+                int bit = bitMask & num;
+                if (bit != 0)
+                    bits[i] += 1;
+                bitMask = bitMask << 1;
+            }
+        }
+        int result = 0;
+        for (int i = 0; i < 32; ++i) {
+            result = result << 1;
+            result += bits[i] % 3;
+        }
+        return result;
+    }
 }
 
 
