@@ -412,6 +412,9 @@ namespace swordToOffer {
 
     int FindNumsAppearThreeForOne(std::vector<int> &nums);
 
+    //57
+    std::pair<int, int> FindNumbersWithSum(std::vector<int > &nums, int sum);
+
 }
 
 

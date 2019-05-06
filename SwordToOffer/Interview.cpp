@@ -1776,6 +1776,19 @@ namespace swordToOffer {
         }
         return result;
     }
+
+    std::pair<int, int> FindNumbersWithSum(std::vector<int > &nums, int sum) {
+        int left = 0, right = nums.size() - 1;
+        while (left < right) {
+            if (nums[left] + nums[right] == sum)
+                return std::make_pair(nums[left], nums[right]);
+            else if (nums[left] + nums[right] < sum)
+                ++left;
+            else
+                --right;
+        }
+        return std::make_pair(-1,-1);
+    }
 }
 
 
