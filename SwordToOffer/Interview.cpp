@@ -1789,6 +1789,61 @@ namespace swordToOffer {
         }
         return std::make_pair(-1,-1);
     }
+
+    void FindContinuousSequence(int sum) {
+        int left = 1, right = 2;
+        int sumTemp;
+        int middle = (1 + sum) / 2;
+        while(left < middle) {
+            sumTemp = 0;
+            for (int i = left; i <= right; ++i)
+                sumTemp+= i;
+            if (sumTemp == sum) {
+                PrintContinuousSequence(left++, right++);
+            } else if (sumTemp < sum)
+                right++;
+            else
+                left++;
+        }
+
+    }
+    void PrintContinuousSequence(int start, int end) {
+        for (int i = start; i <= end; ++i)
+            printf("%d ", i);
+        printf("\n");
+    }
+
+    void ReserveString(std::string &str, int start, int end) {
+        while (start < end) {
+            char tmpc = str[start];
+            str[start] = str[end];
+            str[end] = tmpc;
+            start++;
+            end--;
+        }
+    }
+    void ReverseSentence(std::string &str) {
+        if (str.empty())
+            return;
+        ReserveString(str, 0, str.size() - 1);
+        int start, end;
+        for (int i = 0; i < str.size(); ++i) {
+            if (str[i] != ' ')
+                start = i;
+            else
+                start = ++i;
+
+            while (str[i] != ' ' && i < str.size() - 1)
+                ++i;
+            if (i == str.size() - 1) {
+                ReserveString(str, start, str.size() - 1);
+                return;
+            }
+            end = i - 1;
+            if (end < str.size())
+                ReserveString(str, start, end);
+        }
+    }
 }
 
 

@@ -414,6 +414,12 @@ namespace swordToOffer {
 
     //57
     std::pair<int, int> FindNumbersWithSum(std::vector<int > &nums, int sum);
+    void FindContinuousSequence(int sum);
+    void PrintContinuousSequence(int start, int end);
+
+    //58
+    void ReserveString(std::string &str, int start, int end);
+    void ReverseSentence(std::string &str);
 
 }
 

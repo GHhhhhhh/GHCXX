@@ -44,25 +44,11 @@ public:
 
 
 int main(int argc, char* argv[]) {
-    printf("A::a %p\n", &A::a);
-    printf("B::b %p\n", &B::b);
-    printf("C::a %p\n", &C::a);
-    printf("C::b %p\n", &C::b);
-    printf("C::c %p\n", &C::c);
-//    printf("C::c2 %p\n", &C::c2);
-    printf("D::d %p\n", &D::d);
-//    printf("E::e1 %p\n", &E::e1);
-//    printf("E::e2 %p\n", &E::e2);
-//    printf("E::e3 %p\n", &E::e3);
-//    printf("E::e4 %p\n", &E::e4);
-
-
-//
-    std::cout<<"C: "<< sizeof(C)<<std::endl;
-//    std::cout<<"D: "<< sizeof(D)<<std::endl;7
-//    std::cout<<"E: "<< sizeof(E)<<std::endl;
-//    std::cout<<"F: "<< sizeof(F)<<std::endl;
-//    std::cout<<"int: "<< sizeof(void *)<<std::endl;
+    FindContinuousSequence(15);
+    std::string str = "I am a student.";
+    ReverseSentence(str);
+//    ReserveString(str, 0, str.size() - 1);
+    cout<<str<<endl;
 }
 
 
