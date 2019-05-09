@@ -43,6 +43,10 @@ namespace gh{
         gh::print("function time: ", time2 - time1);
     }
     std::list<std::string> split(const std::string& str, const std::string& delim);
+
+    void memoryCopy(void *pSrc, void *pdest, int length);
+
+    void visitVtbl(int **vtbl, int count);
 }
 
 #endif //GH_CODE_GH_H

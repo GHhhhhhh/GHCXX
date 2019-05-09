@@ -69,3 +69,27 @@ std::list<std::string> gh::split(const std::string& str, const std::string& deli
 
     return res;
 }
+
+void gh::memoryCopy(void *pSrc, void *pdest, int length) {
+    void *det = pdest;
+    while(length--) {
+        *(char*)det = *(char*)pSrc;
+        det++;
+        pSrc++;
+//        det = (char*)det + 1;
+//        pSrc = (char*)pSrc + 1;
+    }
+}
+
+void gh::visitVtbl(int **vtbl, int count) {
+    using namespace std;
+    cout<<vtbl<<endl;
+    cout<<"\t[-1]: "<<(long)vtbl[-1]<<endl;
+
+    typedef void (*FuncPtr)();
+    for (int i = 0; vtbl[i] && i < count; ++i) {
+        cout<<"\t[" << i << "]: " << vtbl[i] << " -> ";
+        FuncPtr func = (FuncPtr)vtbl[i];
+        func();
+    }
+}
