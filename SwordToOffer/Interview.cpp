@@ -1844,6 +1844,14 @@ namespace swordToOffer {
                 ReserveString(str, start, end);
         }
     }
+
+    void LeftRotateString(std::string& str, int n) {
+        if (str.size() == 0)
+            return;
+        ReserveString(str, 0, str.size() - 1);
+        ReserveString(str, 0, str.size() - 1 - n);
+        ReserveString(str, str.size() - n, str.size() - 1);
+    }
 }
 
 

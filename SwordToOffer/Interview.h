@@ -421,6 +421,8 @@ namespace swordToOffer {
     void ReserveString(std::string &str, int start, int end);
     void ReverseSentence(std::string &str);
 
+    void LeftRotateString(std::string& str, int n);
+
 }
 
 

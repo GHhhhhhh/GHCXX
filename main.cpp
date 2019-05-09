@@ -14,7 +14,9 @@ using namespace swordToOffer;
 
 
 int main(int argc, char* argv[]) {
-    
+    std::string str = "abcdefg";
+    LeftRotateString(str, 2);
+    gh::print(str);
     return 0;
 
 }
