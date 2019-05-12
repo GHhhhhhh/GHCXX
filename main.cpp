@@ -4,6 +4,7 @@
 #include <sys/wait.h>
 #include <set>
 #include <fcntl.h>
+#include <Constructor.h>
 //#include "apueLearn.h"
 //#include "unpLearn.h"
 #include "ghlib/gh.h"
@@ -14,11 +15,9 @@ using namespace swordToOffer;
 
 
 int main(int argc, char* argv[]) {
-    std::string str = "abcdefg";
-    LeftRotateString(str, 2);
-    gh::print(str);
+    std::vector<int > vector1 = {5,4,3,11,0};
+    gh::print(IsContinuous(vector1));
     return 0;
-
 }
 
 

@@ -422,6 +422,46 @@ namespace swordToOffer {
     void ReverseSentence(std::string &str);
 
     void LeftRotateString(std::string& str, int n);
+    //59
+    std::vector<int > maxInWindows(const std::vector<int >& num, int size);
+
+    template <typename T> class QueueWithMax{
+    private:
+        struct InternalData{
+            T num;
+            int index;
+        };
+        std::deque<InternalData > data;
+        std::deque<InternalData > maximums;
+        int currentIndex;
+    public:
+        QueueWithMax() : currentIndex(0){}
+        void push_back(T num) {
+            while (!maximums.empty() && num >= maximums.back().data)
+                maximums.pop_back();
+            data.emplace_back(num, currentIndex);
+            maximums.emplace_back(num, currentIndex);
+            ++currentIndex;
+        }
+
+        void pop_front() {
+            if (data.empty())
+                throw "queue is empty";
+            if (maximums.back().index == data.back().index)
+                maximums.pop_front();
+            data.pop_front();
+        }
+
+        T max() const {
+            if (maximums.empty())
+                throw "queue is empty";
+            return maximums.front().num;
+        }
+    };
+
+    void PrintProbability(int num);
+
+    bool IsContinuous(std::vector<int >& numbers);
 
 }
 

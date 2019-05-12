@@ -1852,6 +1852,104 @@ namespace swordToOffer {
         ReserveString(str, 0, str.size() - 1 - n);
         ReserveString(str, str.size() - n, str.size() - 1);
     }
+
+    std::vector<int > maxInWindows(const std::vector<int >& num, int size) {
+        using namespace std;
+        vector<int > maxInWindow;
+        if (num.size() < 1)
+            return maxInWindow;
+        deque<int > index;
+        for (int i = 0; i < size; ++i) {
+            while (!index.empty() && num[i] > num[index.back()])
+                index.pop_back();
+            index.emplace_back(i);
+        }
+
+        for (int i = size; i < num.size(); ++i) {
+            maxInWindow.emplace_back(num[index.front()]);
+
+            while (!index.empty() && num[i] >= num[index.back()]) {
+                index.pop_back();
+            }
+
+            if (!index.empty() && index.front() <= (i - size))
+                index.pop_front();
+
+            index.emplace_back(i);
+        }
+
+        maxInWindow.emplace_back(num[index.front()]);
+        return maxInWindow;
+    }
+
+    void PrintProbability(int number) {
+        if (number < 1)
+            return;
+        int g_maxValue = 6;
+        int *pProbabilities[2];
+        pProbabilities[0] = new int[number * g_maxValue + 1]();
+        pProbabilities[1] = new int[number * g_maxValue + 1]();
+
+        int flag = 0;
+        for (int i = 1; i <= g_maxValue; ++i)
+            pProbabilities[flag][i] = 1;
+
+        for (int i = 2; i <= number; ++i) {
+
+            for (int k = 1; k <= number * g_maxValue; ++k)
+                pProbabilities[1-flag][k] = 0;
+
+            for (int j = i; j <= number * g_maxValue; ++j) {
+                for (int k = 1; k<=j &&k <= g_maxValue; ++k) {
+                    pProbabilities[1-flag][j] += pProbabilities[flag][j - k];
+                }
+            }
+
+            flag = 1 - flag;
+        }
+
+        double total = pow(g_maxValue, number);
+
+        for (int i = number; i <= g_maxValue * number; ++i) {
+            double ratio = (double)pProbabilities[flag][i]/total;
+            printf("%d: %f\n",i ,ratio);
+        }
+        delete[] pProbabilities[0];
+        delete[] pProbabilities[1];
+    }
+
+    bool IsContinuous(std::vector<int >& numbers) {
+        if (numbers.size() < 1)
+            return false;
+        int *pokeCount = new int[14]();
+
+        for (auto num: numbers) {
+            if (num >= 14)
+                throw "";
+            pokeCount[num]++;
+        }
+
+        int zeroCount = pokeCount[0];
+        int gapCount = 0;
+
+        int indexLeft = 1;
+        int indexRight = 13;
+        while (pokeCount[indexLeft] == 0)
+            indexLeft++;
+
+        while (pokeCount[indexRight] == 0)
+            indexRight--;
+
+
+        for (int i = indexLeft; i <= indexRight; ++i) {
+            if (pokeCount[i] > 1)
+                return false;
+            if (pokeCount[i] == 0)
+                gapCount++;
+        }
+        return zeroCount >= gapCount;
+    }
+
 }
 
 
