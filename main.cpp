@@ -15,8 +15,10 @@ using namespace swordToOffer;
 
 
 int main(int argc, char* argv[]) {
-    std::vector<int > vector1 = {5,4,3,11,0};
-    gh::print(IsContinuous(vector1));
+    std::vector<int > vector1 = {12,3,14};
+
+    int k = StrToInt("");
+    gh::print(k);
     return 0;
 }
 

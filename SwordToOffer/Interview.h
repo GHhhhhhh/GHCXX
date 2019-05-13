@@ -463,6 +463,11 @@ namespace swordToOffer {
 
     bool IsContinuous(std::vector<int >& numbers);
 
+    int LastRemaining(unsigned int n, unsigned int m);
+
+    int MaxDiff(std::vector<int >& numbers);
+
+    int StrToInt(const char *string);
 }
 
 

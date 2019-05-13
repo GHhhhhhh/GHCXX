@@ -6,6 +6,7 @@
 #include <cstdlib>
 #include <cmath>
 #include <cstring>
+#include <values.h>
 #include "Interview.h"
 using namespace swordToOffer;
 
@@ -1948,6 +1949,69 @@ namespace swordToOffer {
                 gapCount++;
         }
         return zeroCount >= gapCount;
+    }
+
+    int LastRemaining(unsigned int n, unsigned int m) {
+        if (n < 1 || m < 1)
+            return -1;
+        int last = 0;
+        for (int i = 2; i <= n; i++) {
+            last = (last + m) % i;
+        }
+        return last;
+    }
+
+    int MaxDiff(std::vector<int >& numbers) {
+        if (numbers.size() < 2)
+            return 0;
+
+        int min = numbers[0];
+        int maxDiff = numbers[1] - min;
+        for (int i = 2; i < numbers.size(); ++i) {
+            if (numbers[i - 1] < min)
+                min = numbers[i - 1];
+            if (numbers[i] - min > maxDiff)
+                maxDiff = numbers[i] - min;
+        }
+        return maxDiff;
+    }
+
+    enum StrToIntState {success, fail};
+    StrToIntState strToIntState = fail;
+    int StrToInt(const char *string) {
+        if (string == nullptr || *string == '\0') {
+            return 0;
+        }
+
+        bool isPos = true;
+        if (*string == '+')
+            string++;
+        if (*string == '-') {
+            isPos = false;
+            string++;
+        }
+
+        if (*string == '\0')
+            return 0;
+
+        long number = 0;
+        while (*string != '\0') {
+            if (*string - '0' >= 0 && *string - '0' <= 9) {
+                number = number * 10 + *string - '0';
+                string++;
+            } else {
+                return 0;
+            }
+        }
+
+        if (number > MAXINT || number < -MAXINT) {
+            return 0;
+        }
+
+        number = isPos ? number : -number;
+        strToIntState = success;
+        return number;
+
     }
 
 }
