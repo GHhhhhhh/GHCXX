@@ -3,6 +3,7 @@
 //
 
 #include <cstring>
+#include <assert.h>
 #include "gh.h"
 
 void gh::print() { std::cout<<std::endl;}
@@ -70,15 +71,26 @@ std::list<std::string> gh::split(const std::string& str, const std::string& deli
     return res;
 }
 
-void gh::memoryCopy(void *pSrc, void *pdest, int length) {
-    void *det = pdest;
-    while(length--) {
-        *(char*)det = *(char*)pSrc;
-        det++;
-        pSrc++;
-//        det = (char*)det + 1;
-//        pSrc = (char*)pSrc + 1;
+void* gh::memoryCopy(const void *pSrc, void *pdest, int length) {
+    assert(pSrc);
+    assert(pdest);
+    void *ret = pdest;
+    if (pdest <= pSrc || (char*)pdest >= (char*)pSrc + length) {
+        while (length--) {
+            *(char*)pdest = *(char*)pSrc;
+            pdest++;
+            pSrc++;
+        }
+    } else {
+        pdest = pdest + length - 1;
+        pSrc = pSrc + length - 1;
+        while (length--) {
+            *(char*)pdest = *(char*)pSrc;
+            pdest--;
+            pSrc--;
+        }
     }
+    return ret;
 }
 
 void gh::visitVtbl(int **vtbl, int count) {

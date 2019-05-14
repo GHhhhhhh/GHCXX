@@ -44,7 +44,7 @@ namespace gh{
     }
     std::list<std::string> split(const std::string& str, const std::string& delim);
 
-    void memoryCopy(void *pSrc, void *pdest, int length);
+    void *memoryCopy(const void *pSrc, void *pdest, int length);
 
     void visitVtbl(int **vtbl, int count);
 }
