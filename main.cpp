@@ -14,29 +14,33 @@
 using namespace std;
 using namespace swordToOffer;
 
+class A {
+public:
+    ~A() {gh::print("A");}
+};
+
+class B:public A{
+public:
+    ~B(){ gh::print("B"); }
+};
+
+int firstMissingPositive(vector<int>& nums) {
+    int k = 1;
+    for (auto &i : nums) {
+        if (i <= 0)
+            continue;
+        else {
+            k = i >= k ? i - 1 : k + 1;
+        }
+    }
+    return k;
+}
+
 
 int main(int argc, char* argv[]) {
-    int n;
-    int fd[2];
-    pid_t pid;
-    char line[MAXLINE];
-    if (pipe(fd) < 0)
-        err_sys("pipe error");
-    if ((pid = fork()) < 0) {
-        err_sys("fork error");
-    } else if (pid > 0) {
-        close(fd[1]);
-        n = read(fd[0], line, MAXLINE);
-        printf("father: ");
-        write(STDOUT_FILENO, line, n);
-
-    } else if (pid == 0){
-        close(fd[0]);
-        printf("child: ");
-        write(fd[1], "hello world\n", 12);
-        printf("write finished\n");
-    }
-    exit(0);
+    vector<int> candidates = {3,4,-1,1};
+    gh::print(firstMissingPositive(candidates));
+    return 0;
 }
 
 
