@@ -21,15 +21,17 @@ using namespace swordToOffer;
 string cheng(string &str, int num) {
     string res;
     int shiwei = 0;
-    for (int i = 0; i < str.size(); ++i) {
-        int re = num * (str[i] - '0');
+    for (int i = str.size() - 1; i >= 0 ; --i) {
+        int re = num * (str[i] - '0') + shiwei;
         shiwei = re / 10;
         res += (re % 10) + '0';
     }
+    return res;
 }
 int main(int argc, char* argv[]) {
     string sy = "12345";
-    string str = cheng(sy, 5);
+    string str;
+    str = cheng(sy, 5);
     return 0;
 }
 
