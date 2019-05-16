@@ -6,40 +6,30 @@
 #include <fcntl.h>
 #include <Constructor.h>
 #include <memory>
+#include <netdb.h>
+#include <values.h>
 //#include "apueLearn.h"
 //#include "unpLearn.h"
 #include "ghlib/gh.h"
 #include "SwordToOffer/Interview.h"
 #include "apue.h"
+#include "LeetCode.h"
 using namespace std;
 using namespace swordToOffer;
 
-class A {
-public:
-    ~A() {gh::print("A");}
-};
 
-class B:public A{
-public:
-    ~B(){ gh::print("B"); }
-};
-
-int firstMissingPositive(vector<int>& nums) {
-    int k = 1;
-    for (auto &i : nums) {
-        if (i <= 0)
-            continue;
-        else {
-            k = i >= k ? i - 1 : k + 1;
-        }
+string cheng(string &str, int num) {
+    string res;
+    int shiwei = 0;
+    for (int i = 0; i < str.size(); ++i) {
+        int re = num * (str[i] - '0');
+        shiwei = re / 10;
+        res += (re % 10) + '0';
     }
-    return k;
 }
-
-
 int main(int argc, char* argv[]) {
-    vector<int> candidates = {3,4,-1,1};
-    gh::print(firstMissingPositive(candidates));
+    string sy = "12345";
+    string str = cheng(sy, 5);
     return 0;
 }
 

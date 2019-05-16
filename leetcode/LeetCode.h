@@ -92,6 +92,29 @@ namespace LC {
         combinationSumCore(candidates, visit, 0, sum, target, res);
         return res;
     }
+
+    //42
+    int trap(vector<int>& height) {
+
+    }
+
+    //43
+    string multiply(string num1, string num2) {
+//        if (num1.size() < 1 || num2.size() < 1 || num1[0] == '0' || num2[0] == '0')
+//            return string("0");
+//
+//        string res;
+//        string add;
+//        int leght1 = num1.size();
+//        int leght2 = num2.size();
+//
+//        for (auto n1: num1) {
+//
+//            for (auto n2: num2) {
+//                int sum = atoi(n2) * atoi(n1);
+//            }
+//        }
+    }
 }
 
 #endif //GH_CODE_LEETCODE_H
