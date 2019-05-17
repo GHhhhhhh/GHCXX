@@ -8,6 +8,9 @@
 #include <memory>
 #include <netdb.h>
 #include <values.h>
+#include <poll.h>
+#include <sys/msg.h>
+#include <sys/socket.h>
 //#include "apueLearn.h"
 //#include "unpLearn.h"
 #include "ghlib/gh.h"
@@ -16,23 +19,14 @@
 #include "LeetCode.h"
 using namespace std;
 using namespace swordToOffer;
+using namespace LC;
 
 
-string cheng(string &str, int num) {
-    string res;
-    int shiwei = 0;
-    for (int i = str.size() - 1; i >= 0 ; --i) {
-        int re = num * (str[i] - '0') + shiwei;
-        shiwei = re / 10;
-        res += (re % 10) + '0';
-    }
-    return res;
-}
 int main(int argc, char* argv[]) {
-    string sy = "12345";
-    string str;
-    str = cheng(sy, 5);
-    return 0;
+    string str1 = "123123";
+    string str2 = "5123123";
+    gh::print(multiply(str1, str2));
+//    gh::print(strAdd(str1, str2));
 }
 
 
