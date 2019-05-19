@@ -3,3 +3,4 @@ cmake-build-debug/
 bin/
 vscode/
 lib/
+./lib
