@@ -81,6 +81,21 @@ vector<vector<int>> LC::combinationSum2(vector<int>& candidates, int target) {
     return res;
 }
 
+//41
+int LC::firstMissingPositive(vector<int>& nums) {
+    if (nums.empty())
+        return 1;
+    for (int i = 0; i < nums.size(); ++i) {
+        while (nums[i] > 0 && nums[i] < nums.size()&& nums[i] != nums[nums[i] - 1])
+            swap(nums[nums[i] - 1], nums[i]);
+    }
+    for (int i = 0; i < nums.size(); ++i) {
+        if (nums[i] != i + 1)
+            return i + 1;
+    }
+    return nums.size() + 1;
+
+}
 //42
 int LC::trap(vector<int>& height) {
 
@@ -91,7 +106,7 @@ string LC::multiply(string num1, string num2) {
         if (num1.size() < 1 || num2.size() < 1 || num1[0] == '0' || num2[0] == '0')
             return string("0");
 
-        string res;
+        string res = "0";
         string add;
         int leght1 = num1.size();
         int k = 0;

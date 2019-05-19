@@ -23,9 +23,10 @@ using namespace LC;
 
 
 int main(int argc, char* argv[]) {
-    string str1 = "123123";
-    string str2 = "5123123";
-    gh::print(multiply(str1, str2));
+    string str1 = "23108814760092";
+    string str2 = "55183904456427981";
+    vector<int > vec = {1};
+    gh::print(firstMissingPositive(vec));
 //    gh::print(strAdd(str1, str2));
 }
 

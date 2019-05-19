@@ -24,6 +24,9 @@ namespace LC {
     void combinationSumCore2(vector<int>& candidates, vector<int>& visit, int index, int &sumNum, int target, vector<vector<int>>& res);
     vector<vector<int>> combinationSum2(vector<int>& candidates, int target);
 
+
+    //41
+    int firstMissingPositive(vector<int>& nums);
     //42
     int trap(vector<int>& height);
 

@@ -6,7 +6,7 @@
 #define GH_CODE_APUELEARN_H
 
 #include <poll.h>
-#include <zconf.h>
+//#include <zconf.h>
 #include <sys/msg.h>
 #include <sys/socket.h>
 #include <pthread.h>
