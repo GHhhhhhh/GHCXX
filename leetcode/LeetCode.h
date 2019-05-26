@@ -36,6 +36,26 @@ namespace LC {
     string strMultiplication(string &str, int num);
 
     string strAdd(string &str1, string &str2);
+
+    int jump(vector<int>& nums);
+
+    vector<vector<int>> permute(vector<int>& nums);
+
 }
 
+
+class Solution {
+public:
+    vector<vector<int>> permute(vector<int>& nums);
+    void permuteT(vector<int>& nums, int index);
+    //47
+    vector<vector<int>> permuteUnique(vector<int>& nums);
+    void permuteT2(vector<int> nums, int index);
+    vector<vector<int>> permuteRes;
+
+    void rotate(vector<vector<int>>& matrix);
+
+    //49
+    vector<vector<string>> groupAnagrams(vector<string>& strs);
+};
 #endif //GH_CODE_LEETCODE_H

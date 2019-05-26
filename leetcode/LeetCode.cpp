@@ -3,6 +3,7 @@
 //
 
 #include <gh.h>
+#include <map>
 #include "LeetCode.h"
 //39
 void LC::combinationSumCore(vector<int>& candidates, vector<int>& visit, int index, int &sumNum, int target, vector<vector<int>>& res) {
@@ -98,7 +99,20 @@ int LC::firstMissingPositive(vector<int>& nums) {
 }
 //42
 int LC::trap(vector<int>& height) {
-
+    int left = 0, right = height.size() - 1;
+    int ans = 0;
+    int left_max = 0, right_max = 0;
+    while (left < right) {
+        if (height[left] < height[right]) {
+            height[left] >= left_max ? (left_max = height[left]) : ans += (left_max - height[left]);
+            ++left;
+        }
+        else {
+            height[right] >= right_max ? (right_max = height[right]) : ans += (right_max - height[right]);
+            --right;
+        }
+    }
+    return ans;
 }
 
 //43
@@ -156,7 +170,7 @@ string LC::strAdd(string &str1, string &str2) {
     int str1Count = str1.size() -1;
     int str2Count = str2.size() -1;
     int jin = 0;
-    while (str1Count >=0 && str2Count >=0) {
+    while (str1Count >= 0 && str2Count >= 0) {
         int temp = str1[str1Count--] - '0' + str2[str2Count--] - '0';
         temp = temp + jin;
         jin = temp / 10;
@@ -164,7 +178,7 @@ string LC::strAdd(string &str1, string &str2) {
         res += to_string(temp);
     }
 
-    while(str1Count >=0 ) {
+    while(str1Count >= 0 ) {
         int temp = str1[str1Count--] - '0';
         temp = temp + jin;
         jin = temp / 10;
@@ -172,7 +186,7 @@ string LC::strAdd(string &str1, string &str2) {
         res += to_string(temp);
     }
 
-    while(str2Count >=0 ) {
+    while(str2Count >= 0 ) {
         int temp = str2[str2Count--] - '0';
         temp = temp + jin;
         jin = temp / 10;
@@ -195,3 +209,110 @@ string LC::strAdd(string &str1, string &str2) {
 
     return res;
 }
+
+int LC::jump(vector<int>& nums) {
+    if (nums.size() <= 1)
+        return 0;
+    int start = 0, step = 0, reach = 0;
+    while (reach < nums.size() - 1) {
+        int farest = 0;
+        for (int i = start; i <= reach; ++i) {
+            farest = max(farest, nums[i] + i);
+        }
+        start = reach + 1;
+        reach = farest;
+        ++step;
+    }
+    return step;
+}
+
+vector<vector<int>> permute(vector<int>& nums) {
+
+}
+
+vector<vector<int>> Solution::permute(vector<int> &nums) {
+    if (!nums.empty())
+        permuteT(nums, 0);
+    return permuteRes;
+}
+
+void Solution::permuteT(vector<int> &nums, int index) {
+    if (index == nums.size()) {
+        permuteRes.emplace_back(nums);
+        return;
+    }
+
+    for (int i = index; i < nums.size(); ++i) {
+        swap(nums[index], nums[i]);
+        permuteT(nums, index + 1);
+        swap(nums[index], nums[i]);
+    }
+}
+
+vector<vector<int>> Solution::permuteUnique(vector<int> &nums) {
+    if (!nums.empty()) {
+        sort(nums.begin(), nums.end());
+        permuteT2(nums, 0);
+    }
+    return permuteRes;
+}
+
+void Solution::permuteT2(vector<int> nums, int index) {
+    if (index == nums.size()) {
+        permuteRes.emplace_back(nums);
+        return;
+    }
+    for (int i = index; i < nums.size(); ++i) {
+        if (i != index && nums[index] == nums[i]) {
+            continue;
+        }
+        swap(nums[index], nums[i]);
+        permuteT2(nums, index + 1);
+//        swap(nums[index], nums[i]);
+    }
+}
+
+void Solution::rotate(vector<vector<int>> &matrix) {
+    int size = matrix.size();
+    for (int i = 0; i < size; ++i) {
+        int left = 0, right = size - 1;
+        while (left < right)
+            swap(matrix[i][left++], matrix[i][right--]);
+
+    }
+
+    int j = size - 2;
+    while (j >= 0) {
+        int interI = 0, interJ = j;
+        while (interI < size / 2 && interI < size - interJ - 1)
+            swap(matrix[interI++][interJ++], matrix[size - interJ - 1][size - interI - 1]);
+        j--;
+    }
+
+    int i = 1;
+    while (i < size - 1) {
+        int interI = i, interJ = 0;
+        while (interI < size - 1 && interI < size - interJ - 1)
+            swap(matrix[interI++][interJ++], matrix[size - interJ - 1][size - interI - 1]);
+        i++;
+    }
+}
+
+vector<vector<string>> Solution::groupAnagrams(vector<string> &strs) {
+    map<string,vector<string>> dict;
+    vector<vector<string>> res;
+    string tmp;
+    for(int i = 0 ; i < strs.size();++i){
+        tmp = strs[i];
+        sort(tmp.begin(),tmp.end());
+        dict[tmp].push_back(strs[i]);
+    }
+
+    for(auto i:dict)
+        res.push_back(i.second);
+
+    return res;
+}
+
+
+
