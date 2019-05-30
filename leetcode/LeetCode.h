@@ -50,12 +50,29 @@ public:
     void permuteT(vector<int>& nums, int index);
     //47
     vector<vector<int>> permuteUnique(vector<int>& nums);
-    void permuteT2(vector<int> nums, int index);
+    void permuteT2(vector<int> &nums, int index);
     vector<vector<int>> permuteRes;
 
     void rotate(vector<vector<int>>& matrix);
 
     //49
     vector<vector<string>> groupAnagrams(vector<string>& strs);
+
+    //50
+    double myPowCore(double x, unsigned int n);
+    double myPow(double x, int n);
+
+    //51
+    vector<vector<string>> solveNQueens(int n);
+
+    vector<vector<int>> solveNQueensPermute(vector<int>& nums);
+    void solveNQueensPermuteCore(vector<vector<int>> &result, vector<int> &nums, int index);
+
+    //52
+    int totalNQueens(int n);
+
+    int totalNQueens2(int n);
+
+    void dfs52(int n, int row, int col, int ld, int rd, int &res);
 };
 #endif //GH_CODE_LEETCODE_H

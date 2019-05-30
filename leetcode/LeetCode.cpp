@@ -257,7 +257,7 @@ vector<vector<int>> Solution::permuteUnique(vector<int> &nums) {
     return permuteRes;
 }
 
-void Solution::permuteT2(vector<int> nums, int index) {
+void Solution::permuteT2(vector<int> &nums, int index) {
     if (index == nums.size()) {
         permuteRes.emplace_back(nums);
         return;
@@ -268,7 +268,7 @@ void Solution::permuteT2(vector<int> nums, int index) {
         }
         swap(nums[index], nums[i]);
         permuteT2(nums, index + 1);
-//        swap(nums[index], nums[i]);
+        swap(nums[index], nums[i]);
     }
 }
 
@@ -302,17 +302,131 @@ vector<vector<string>> Solution::groupAnagrams(vector<string> &strs) {
     map<string,vector<string>> dict;
     vector<vector<string>> res;
     string tmp;
-    for(int i = 0 ; i < strs.size();++i){
+    for (int i = 0; i < strs.size(); ++i){
         tmp = strs[i];
-        sort(tmp.begin(),tmp.end());
+        sort(tmp.begin(), tmp.end());
         dict[tmp].push_back(strs[i]);
     }
 
-    for(auto i:dict)
+    for (auto i: dict)
         res.push_back(i.second);
 
     return res;
 }
 
+double Solution::myPow(double x, int n) {
+    if ((fabs(x - 0.0) < 10E-6) && n < 0)
+        return 0.0;
+    bool neg = false;
+    if (n < 0) {
+        n = (unsigned int)-n;
+        neg = true;
+    }
+    double result = myPowCore(x, n);
+    if (neg)
+        return 1 / result;
+    return result;
+}
 
+double Solution::myPowCore(double x, unsigned int n) {
+    if (n == 0)
+        return 1;
+    if (n == 1)
+        return x;
+    double result = myPowCore(x, n >> 1);
+    result *= result;
+    if (n & 1 == 1)
+        result *= x;
+    return result;
+}
+
+vector<vector<string>> Solution::solveNQueens(int n) {
+    vector<int > nums;
+    vector<vector<string>> result;
+    for (int i = 0; i < n; ++i)
+        nums.emplace_back(i);
+    double time1, time2;
+    time1 = gh::current_time();
+    vector<vector<int>> resNum = solveNQueensPermute(nums);
+    gh::print("count: ", gh::current_time() - time1);
+    time1 = gh::current_time();
+    for (auto &i: resNum) {
+        vector<string> temp;
+        for (int j = 0; j < i.size(); ++j) {
+            string str;
+            for (int k = 0; k < i.size(); ++k) {
+                if (k == i[j])
+                    str += 'Q';
+                else
+                    str += '.';
+            }
+            temp.emplace_back(str);
+        }
+        result.emplace_back(temp);
+    }
+    gh::print("ser: ", gh::current_time() - time1);
+    return result;
+}
+
+vector<vector<int>> Solution::solveNQueensPermute(vector<int> &nums) {
+    if (nums.empty())
+        return vector<vector<int>>();
+    vector<vector<int>> result;
+    solveNQueensPermuteCore(result, nums, 0);
+    return result;
+}
+
+void Solution::solveNQueensPermuteCore(vector<vector<int>> &result,vector<int> &nums, int index) {
+
+    if (index == nums.size()) {
+        for (int i = 0; i < nums.size(); ++i) {
+            for (int j = i + 1; j < nums.size(); ++j) {
+                if (((i - j) == (nums[i] - nums[j])) || ((j - i) == (nums[i] - nums[j]))) {
+                    return;
+                }
+            }
+        }
+        result.emplace_back(nums);
+        return;
+    }
+    for (int i = index; i < nums.size(); ++i) {
+//        bool b1 = (i != index);
+//        bool b2 = ((i - index) == (nums[i] - nums[index])) || ((index - i) == (nums[i] - nums[index]));
+        swap(nums[index], nums[i]);
+//        if (i != index && (((i - index) == (nums[i] - nums[index])) || ((index - i) == (nums[i] - nums[index])))) {
+//            continue;
+//        }
+        solveNQueensPermuteCore(result, nums, index + 1);
+        swap(nums[index], nums[i]);
+    }
+}
+
+int Solution::totalNQueens(int n) {
+    if (n == 1)
+        return 1;
+    if (n < 4)
+        return 0;
+    vector<int > nums;
+    for (int i = 0; i < n; ++i)
+        nums.emplace_back(i);
+    vector<vector<int>> resNum = solveNQueensPermute(nums);
+    return resNum.size();
+}
+
+int Solution::totalNQueens2(int n) {
+    int res;
+    dfs52(n, 0, 0, 0, 0, res);
+    return res;
+}
+
+void Solution::dfs52(int n, int row, int col, int ld, int rd, int &res) {
+    if (row >= n) { res++; return; }
+    // 将所有能放置 Q 的位置由 0 变成 1，以便进行后续的位遍历
+    int bits = ~(col | ld | rd) & ((1 << n) - 1);
+    while (bits > 0) {
+        int pick = bits & -bits; // 注: x & -x
+        dfs52(n, row + 1, col | pick, (ld | pick) << 1, (rd | pick) >> 1, res);
+        bits &= bits - 1; // 注: x & (x - 1)
+    }
+}
 
