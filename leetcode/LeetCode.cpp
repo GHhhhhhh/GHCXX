@@ -4,6 +4,7 @@
 
 #include <gh.h>
 #include <map>
+#include <cmath>
 #include "LeetCode.h"
 //39
 void LC::combinationSumCore(vector<int>& candidates, vector<int>& visit, int index, int &sumNum, int target, vector<vector<int>>& res) {
