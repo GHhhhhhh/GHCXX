@@ -431,3 +431,28 @@ void Solution::dfs52(int n, int row, int col, int ld, int rd, int &res) {
     }
 }
 
+int Solution::maxSubArray(vector<int> &nums) {
+    int max = nums[0];
+    int currentMax = 0;
+    for (int i = 0; i < nums.size(); ++i) {
+        if (currentMax >= 0) {
+            currentMax += nums[i];
+        } else {
+            currentMax = 0;
+            currentMax += nums[i];
+        }
+        max = max > currentMax ? max : currentMax;
+    }
+    return max;
+}
+
+bool Solution::canJump(vector<int> &nums) {
+    int lastPos = nums.size() - 1;
+    for (int i = nums.size() - 1; i >= 0; i--) {
+        if (i + nums[i] >= lastPos) {
+            lastPos = i;
+        }
+    }
+    return lastPos == 0;
+}
+
