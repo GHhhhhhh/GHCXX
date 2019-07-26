@@ -47,6 +47,12 @@ namespace gh{
     void *memoryCopy(const void *pSrc, void *pdest, int length);
 
     void visitVtbl(int **vtbl, int count);
+
+    int strcmp(const char *st1, const char *st2);
+
+    char* strcpy(char *src, char *dest);
+
+    char *strcat(char *dest, const char* src);
 }
 
 #endif //GH_CODE_GH_H

@@ -2,33 +2,26 @@
 #include <algorithm>
 #include <dirent.h>
 #include <thread>
+#include <cstring>
+#include <values.h>
 #include "apueLearn.h"
 #include "unpLearn.h"
+#include <unordered_map>
 #include "ghlib/gh.h"
 #include "SwordToOffer/Interview.h"
 using namespace std;
 using namespace swordToOffer;
-int a = 0;
-void func() {
-    for (int i = 0; i <=2; ++i)
-        a+= i*(i%2?1:-1);
-}
 
-int main(int argc, char* argv[]) {
-    char *c = "889##24##7##7##";
-    // BinaryTreeNode *pRoot1 = createBinaryTreeNodebyPre(c, 15);
-    // PreBinaryTree(pRoot1);
-//    BinaryTreeNode *pRoot2 = createBinaryTreeNodebyPre();
-//    PreBinaryTree(pRoot2);
-//    gh::print(HasSubtree(pRoot1, pRoot2));
-//    gh::print("Hello vscode!");
-     std::thread t1(func);
-     std::thread t2(func);
-    t1.detach();
-    t2.join();
-    cout<<a<<endl;
 
+int main(int argc, char* argv[], char** envp) {
 
 }
 
 //889##24##7##7## 89##2##
+//
+//[1  3  -1] -3  5  3  6  7       3
+//1 [3  -1  -3] 5  3  6  7       3
+//1  3 [-1  -3  5] 3  6  7       5
+//1  3  -1 [-3  5  3] 6  7       5
+//1  3  -1  -3 [5  3  6] 7       6
+//1  3  -1  -3  5 [3  6  7]      7

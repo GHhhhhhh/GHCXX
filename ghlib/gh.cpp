@@ -105,3 +105,34 @@ void gh::visitVtbl(int **vtbl, int count) {
         func();
     }
 }
+
+int gh::strcmp(const char *st1, const char *st2) {
+    unsigned char c1;
+    unsigned char c2;
+    while (true) {
+        c1 = *st1++;
+        c2 = *st2++;
+        if (c1 != c2) {
+            return c1 < c2 ? -1 : 1;
+        }
+        if (!c1)
+            break;
+    }
+    return 0;
+}
+
+char*gh:: strcpy(char *src, char *dest) {
+    if (src == nullptr || dest == nullptr)
+        return nullptr;
+    if (src == dest)
+        return dest;
+    while ((*dest++ = *src++) != '\0');
+}
+
+char*gh::strcat(char *dest, const char* src) {
+    char* temp = dest;
+    while (*dest)
+        dest++;
+    while ((*dest++ = *src++) != '\0');
+    return temp;
+}
