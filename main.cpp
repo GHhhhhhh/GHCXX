@@ -14,7 +14,7 @@ using namespace swordToOffer;
 
 
 int main(int argc, char* argv[], char** envp) {
-
+//    gh::GHsingle *gHsingle = gh::GHsingle::getInstance();
 }
 
 //889##24##7##7## 89##2##

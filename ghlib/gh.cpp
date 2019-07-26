@@ -121,7 +121,7 @@ int gh::strcmp(const char *st1, const char *st2) {
     return 0;
 }
 
-char*gh:: strcpy(char *src, char *dest) {
+char*gh:: ghstrcpy(char *src, char *dest) {
     if (src == nullptr || dest == nullptr)
         return nullptr;
     if (src == dest)
@@ -136,3 +136,4 @@ char*gh::strcat(char *dest, const char* src) {
     while ((*dest++ = *src++) != '\0');
     return temp;
 }
+gh::GHsingle* gh::GHsingle::gHsingle = nullptr;
