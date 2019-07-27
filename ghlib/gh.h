@@ -11,6 +11,8 @@
 #include <vector>
 #include <list>
 #include <unordered_map>
+#include <stack>
+
 using namespace std;
 namespace gh{
     void print();
@@ -113,6 +115,77 @@ namespace gh{
         list<pair<int, int>> _caches;
         unordered_map<int, list<pair<int, int>>::iterator> _cacheMap;
         int _cap;
+    };
+
+    class MinStack {
+    public:
+        /** initialize your data structure here. */
+        MinStack() {
+
+        }
+
+        void push(int x) {
+            _data.push(x);
+            if (_dataMin.empty())
+                _dataMin.push(x);
+            else {
+                if (x <= _dataMin.top())
+                    _dataMin.push(x);
+                else
+                    _dataMin.push(_dataMin.top());
+            }
+        }
+
+        void pop() {
+            _data.pop();
+            _dataMin.pop();
+        }
+
+        int top() {
+            return _data.top();
+        }
+
+        int getMin() {
+            return _dataMin.top();
+        }
+    private:
+        stack<int > _data;
+        stack<int > _dataMin;
+    };
+    struct TreeNode {
+        int val;
+        TreeNode *left;
+        TreeNode *right;
+        TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+    };
+    class BSTIterator {
+    public:
+        BSTIterator(TreeNode* root) {
+            p = root;
+        }
+
+        /** @return the next smallest number */
+        int next() {
+            int res;
+            while (p) {
+                s.push(p);
+                p = p->left;
+            }
+            if (!s.empty()) {
+                p = s.top();
+                res = p->val;
+                s.pop();
+                p = p->right;
+            }
+            return res;
+        }
+
+        /** @return whether we have a next smallest number */
+        bool hasNext() {
+            return p || !s.empty();
+        }
+        TreeNode* p;;
+        stack<TreeNode* > s;
     };
 }
 
