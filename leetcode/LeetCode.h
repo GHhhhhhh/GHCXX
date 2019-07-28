@@ -1923,6 +1923,16 @@ public:
         }
         return res;
     }
+    //01 beibao
+    int beibao(vector<int > &weights, vector<int > &values, int bag) {
+        vector<int > dp(bag + 1, 0);
+        for (int i = 0; i < weights.size(); ++i) {
+            for (int j = bag; j >= weights[i]; --j) {
+                dp[j] = max(dp[j], dp[j - weights[i]] + values[i]);
+            }
+        }
+        return dp[bag];
+    }
 
 };
 #endif //GH_CODE_LEETCODE_H
