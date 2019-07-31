@@ -9,6 +9,7 @@
 #include <vector>
 #include <algorithm>
 #include <stack>
+#include <climits>
 
 using namespace std;
 
@@ -1342,6 +1343,595 @@ public:
         }
         return res;
 
+    }
+    //122 买卖股票的最佳时机 II
+    int maxProfit2(vector<int>& prices) {
+        if (prices.empty())
+            return 0;
+        int profi = 0;
+        int cur = prices[0];
+        for (int i = 1; i < prices.size(); ++i) {
+            if (prices[i] - cur > 0) {
+                profi += prices[i] - cur;
+            }
+            cur = prices[i];
+        }
+        return profi;
+    }
+
+//    123. 买卖股票的最佳时机 III
+    int maxProfit3(vector<int>& prices) {
+        int len = prices.size();
+        if(len < 2){
+            return 0;
+        }
+        int pi1 = 0,res1 = -10000;
+        int pi2 = 0,res2 = -10000;
+        for(int i = 0;i < len;++i){
+            pi2 = max(pi2, res2 + prices[i]);
+            res2 = max(res2, pi1 - prices[i]);
+            pi1 = max(pi1, res1 + prices[i]);
+            res1 = max(res1, -prices[i]);
+        }
+        return pi2;
+    }
+
+//    124. 二叉树中的最大路径和
+    int maxRes = INT_MIN;
+    int maxPathSum(TreeNode* root) {
+        maxRoot(root);
+        return maxRes;
+    }
+
+    int maxRoot(TreeNode* root) {
+        if (root == nullptr)
+            return 0;
+        int left = max(maxRoot(root->left), 0);
+        int right = max(maxRoot(root->right), 0);
+        maxRes = max(maxRes, root->val + left + right);
+        return max(left, right) + root->val;
+    }
+
+//    125. 验证回文串
+    bool isPalindrome(string s) {
+        int left = 0, right = s.size() - 1;
+        while (left < right) {
+            while (left < s.size() && !isChar(s[left]))
+                left++;
+            while (right >= 0 && !isChar(s[right]))
+                right--;
+            if (left < right && !equal(s[left++], s[right--]))
+                return false;
+        }
+        return true;
+    }
+
+    bool equal(char c1, char c2) {
+        // (c1 >= 'A' && c1 <= 'Z' && c2 >= 'a' && c2 <= 'z')
+        // (c1 >= 'a' && c1 <= 'z' && c2 >= 'A' && c2 <= 'Z' &&c1 - 'a' == c2 - 'A')
+        if (c1 == c2 ||
+            (c1 >= 'A' && c1 <= 'Z' && c2 >= 'a' && c2 <= 'z' && c1 - 'A' == c2 - 'a') ||
+            (c1 >= 'a' && c1 <= 'z' && c2 >= 'A' && c2 <= 'Z' &&c1 - 'a' == c2 - 'A')
+                )
+            return true;
+        else
+            return false;
+
+    }
+
+    bool isChar(char c) {
+        if (c >= 'a' && c <= 'z')
+            return true;
+        else if (c >= 'A' && c <= 'Z')
+            return true;
+        else if (c >= '0' && c <= '9')
+            return true;
+        else
+            return false;
+
+    }
+
+//    134. 加油站
+    int canCompleteCircuit(vector<int>& gas, vector<int>& cost) {
+        int total = 0;
+        int sum = 0;
+        int start = 0;
+        for (int i = 0; i < gas.size(); i++)
+        {
+            int sub = gas[i] - cost[i];
+            total += sub;
+            sum += sub;
+            if (sum < 0)
+            {
+                sum = 0;
+                start = i + 1;
+            }
+        }
+        return total < 0 ? -1 : start;
+    }
+
+//    135. 分发糖果
+    int candy(vector<int>& ratings) {
+        vector<int > can(ratings.size(), 1);
+        for (int i = 1; i < ratings.size(); ++i) {
+            if (ratings[i] > ratings[i - 1])
+                can[i] = can[i - 1] + 1;
+        }
+
+        for (int i = ratings.size() - 2; i >= 0; --i) {
+            if (ratings[i] > ratings[i + 1])
+                can[i] = max(can[i], can[i + 1] + 1);
+        }
+
+        int sum = accumulate(can.begin() , can.end() , 0);
+        return sum;
+    }
+
+//    136. 只出现一次的数字
+    int singleNumber(vector<int>& nums) {
+        int res = nums[0];
+        for (int i = 1; i < nums.size(); ++i) {
+            res ^= nums[i];
+        }
+        return res;
+    }
+
+//    137. 只出现一次的数字 II
+    int singleNumber2(vector<int>& nums) {
+        vector<int > bin(32, 0);
+        int res = 0;
+        for (int i = 0; i < 32; ++i) {
+            int mask = 1 << i;
+            int cnt = 0;
+            for (int j = 0; j < nums.size(); ++j) {
+                if ((nums[j] & mask) != 0) {
+                    cnt++;
+                }
+            }
+            if (cnt % 3 != 0) {
+                res |= mask;
+            }
+        }
+        return res;
+    }
+
+//    141. 环形链表
+    bool hasCycle(ListNode *head) {
+        if (head == nullptr || head->next == nullptr)
+            return false;
+        ListNode *fast = head;
+        ListNode *slow = head;
+        while (fast && fast->next) {
+            fast = fast->next->next;
+            slow = slow->next;
+            if (fast == slow)
+                return true;
+        }
+        return false;
+    }
+
+
+//    142. 环形链表 II
+    ListNode *hasCycle2(ListNode *head) {
+        if (head == nullptr || head->next == nullptr)
+            return nullptr;
+        ListNode *fast = head;
+        ListNode *slow = head;
+        while (fast && fast->next) {
+            fast = fast->next->next;
+            slow = slow->next;
+            if (fast == slow)
+                return fast;
+        }
+        return nullptr;
+    }
+    ListNode *detectCycle(ListNode *head) {
+        if (head == nullptr || head->next == nullptr)
+            return nullptr;
+        ListNode *pHead = head;
+        ListNode *last = hasCycle2(head);
+        if (last == nullptr)
+            return nullptr;
+        while (pHead != last) {
+            pHead = pHead->next;
+            last = last->next;
+        }
+        return last;
+    }
+
+//    143. 重排链表
+    void reorderList(ListNode* head) {
+        if (head == nullptr || head->next == nullptr)
+            return;
+
+        ListNode* slow = head;
+        ListNode* fast = head;
+        // find middle
+        while (fast->next && fast->next->next) {
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+        // reverse between middle and end
+        ListNode *middle = slow->next;
+        slow->next = nullptr;
+        while (middle) {
+            ListNode *temp = middle->next;
+            middle->next = slow->next;
+            slow->next = middle;
+            middle = temp;
+        }
+        // combine two listNode
+        ListNode *head2 = slow->next;
+        slow->next = nullptr;
+        int i = 0;
+        ListNode *newHead = head;
+
+        while (head2) {
+            if ((i & 1) == 0) {
+                ListNode *temp = head2->next;
+                head2->next = newHead->next;
+                newHead->next = head2;
+                head2 = temp;
+            }
+            newHead = newHead->next;
+            ++i;
+        }
+    }
+
+//    144. 二叉树的前序遍历
+    vector<int> preorderTraversal(TreeNode* root) {
+        stack<TreeNode* > stack1;
+        vector<int> res;
+        TreeNode *p = root;
+        while (p || !stack1.empty()) {
+            while (p) {
+                res.emplace_back(p->val);
+                stack1.push(p);
+                p = p->left;
+            }
+
+            if (!stack1.empty()) {
+                p = stack1.top();
+                stack1.pop();
+                p = p->right;
+            }
+        }
+        return res;
+    }
+//    144. 二叉树的后序遍历
+    vector<int> postorderTraversal(TreeNode* root) {
+        vector<int> res;
+        stack<TreeNode* > s;
+        TreeNode *pCur = root;
+        TreeNode *pLastVisit;
+        while (pCur) {
+            s.push(pCur);
+            pCur = pCur->left;
+        }
+
+        while (!s.empty()) {
+            pCur = s.top();
+            s.pop();
+            if (pCur->right == nullptr || pCur->right == pLastVisit) {
+                res.emplace_back(pCur->val);
+                pLastVisit = pCur;
+            } else {
+                s.push(pCur);
+                pCur = pCur->right;
+                while (pCur) {
+                    s.push(pCur);
+                    pCur = pCur->left;
+                }
+            }
+        }
+        return res;
+    }
+
+//    147. 对链表进行插入排序
+    ListNode* insertionSortList(ListNode* head) {
+        if (head == nullptr || head->next == nullptr)
+            return head;
+        ListNode *phead = head;
+        ListNode *p = head->next;
+        phead->next = nullptr;
+        while (p) {
+            //tou cha fa
+            if (p->val <= phead->val) {
+                ListNode *tmp = p->next;
+                p->next = phead;
+                phead = p;
+                p = tmp;
+                continue;
+            }
+
+            ListNode *temp = phead->next;
+            ListNode *pre = phead;
+            while (temp && temp->val < p->val) {
+                temp = temp->next;
+                pre = pre->next;
+            }
+            if (temp == nullptr) {
+                ListNode *tmp = p->next;
+                p->next = nullptr;
+                pre->next = p;
+                p = tmp;
+                continue;
+            }
+            ListNode *tmp = p->next;
+            p->next = pre->next;
+            pre->next = p;
+            p = tmp;
+        }
+        return phead;
+    }
+
+    //150. 逆波兰表达式求值
+    int evalRPN(vector<string>& tokens) {
+        int ans = 0;
+        stack<int > evalStack;
+        if (tokens[0][0] >= '0' && tokens[tokens.size() - 1][0] < '9')
+            ans = str2Num(tokens[0]);
+
+        for (int i = 0; i < tokens.size(); ++i) {
+            if (tokens[i] == "+") {
+                int left = evalStack.top();
+                evalStack.pop();
+                int right = evalStack.top();
+                evalStack.pop();
+                ans = left + right;
+                evalStack.emplace(ans);
+            } else if (tokens[i] == "-") {
+                int left = evalStack.top();
+                evalStack.pop();
+                int right = evalStack.top();
+                evalStack.pop();
+                ans = right - left;
+                evalStack.emplace(ans);
+            } else if (tokens[i] == "*") {
+                int left = evalStack.top();
+                evalStack.pop();
+                int right = evalStack.top();
+                evalStack.pop();
+                ans = left * right;
+                evalStack.emplace(ans);
+            } else if (tokens[i] == "/") {
+                int left = evalStack.top();
+                evalStack.pop();
+                int right = evalStack.top();
+                evalStack.pop();
+                ans = right / left;
+                evalStack.emplace(ans);
+            } else {
+                ans = str2Num(tokens[i]);
+                evalStack.emplace(ans);
+            }
+        }
+        return ans;
+    }
+
+    int str2Num(string str) {
+        return atoi(str.c_str());
+    }
+
+//    152. 乘积最大子序列
+    int maxProduct(vector<int>& nums) {
+        int resMax = INT_MIN;
+        int curMin = 1;
+        int curMax = 1;
+
+        for (int i = 0; i < nums.size(); ++i) {
+            if (nums[i] < 0)
+                swap(curMin, curMax);
+            curMin = min(curMin*nums[i], nums[i]);
+            curMax = max(curMax*nums[i], nums[i]);
+            resMax = max(curMax, resMax);
+        }
+        return resMax;
+    }
+
+//    153. 寻找旋转排序数组中的最小值
+    int findMin(vector<int>& nums) {
+        int left = 0, right = nums.size() - 1;
+        while (left < right) {
+            int mid = (left + right) / 2;
+            if (nums[mid] < nums[right])
+                right = mid;
+            else if (nums[mid] > nums[right])
+                left = mid + 1;
+        }
+        return nums[right];
+    }
+
+//* [154] 寻找旋转排序数组中的最小值 II
+    int findMin2(vector<int>& nums) {
+        int left = 0, right = nums.size() - 1;
+        if (nums[left] < nums[right])
+            return nums[left];
+        while (left + 1 < nums.size() && nums[left] == nums[left + 1])
+            left++;
+        while (right - 1 >= 0 && nums[right] == nums[right - 1])
+            right--;
+        while (left < right) {
+            int mid = (left + right) / 2;
+            if (nums[mid] < nums[right])
+                right = mid;
+            else if (nums[mid] > nums[right])
+                left = mid + 1;
+            else
+                return nums[mid];
+        }
+        return nums[right];
+    }
+
+//    160. 相交链表
+    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+        if (headA == headB)
+            return headA;
+        ListNode *p = headA;
+        int lenghtA = 0, lenghtB = 0;
+        while (p) {
+            lenghtA++;
+            p = p->next;
+        }
+        p = headB;
+        while (p) {
+            p = p->next;
+            ++lenghtB;
+        }
+        ListNode *pa = headA, *pb = headB;
+        if (lenghtA > lenghtB) {
+            int n = lenghtA - lenghtB;
+            while (n--) {
+                pa = pa->next;
+            }
+        } else {
+            int n = lenghtB - lenghtA;
+            while (n--) {
+                pb = pb->next;
+            }
+        }
+
+        while (pa && pb) {
+            if (pa == pb)
+                return pa;
+            pa = pa->next;
+            pb = pb->next;
+        }
+
+        return nullptr;
+    }
+
+//    162. 寻找峰值
+    int findPeakElement(vector<int>& nums) {
+        int left = 0, right = nums.size() - 1;
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            if (nums[mid] > nums[mid + 1])
+                right = mid;
+            else
+                left = mid + 1;
+        }
+        return left;
+    }
+
+//    169. 求众数
+    int majorityElement(vector<int>& nums) {
+        int res;
+        int count = 0;
+        for (int i = 0; i < nums.size(); ++i) {
+            if (count == 0) {
+                res = nums[i];
+                count++;
+                continue;
+            }
+            if (nums[i] == res) {
+                ++count;
+            } else {
+                --count;
+            }
+        }
+        return res;
+    }
+
+//    191. 位1的个数
+    int hammingWeight(uint32_t n) {
+        uint64_t k = 1;
+        int res = 0;
+        for (int i = 0; i < 32; ++i) {
+            if ((k & n) != 0)
+                res++;
+            k = k << 1;
+        }
+        return res;
+    }
+
+//    198. 打家劫舍
+    int rob(vector<int>& nums) {
+        if (nums.empty())
+            return 0;
+        if (nums.size() == 1)
+            return nums[0];
+        if (nums.size() == 2)
+            return max(nums[0], nums[1]);
+        vector<int > dp(nums.size(), 0);
+        dp[0] = nums[0], dp[1] = max(nums[1], nums[0]);
+
+        for (int i = 2; i < nums.size(); ++i) {
+            dp[i] = max(dp[i - 1], dp[i - 2] + nums[i]);
+        }
+        return dp[dp.size() - 1];
+    }
+
+//    229. 求众数 II
+    vector<int> majorityElement2(vector<int>& nums) {
+        vector<int> res;
+        if (nums.empty())
+            return res;
+        int me1, me2, count1 = 0, count2 = 0;
+        for (int i = 0; i < nums.size(); ++i) {
+            if (count1 == 0 && me2 != nums[i]) {
+                me1 = nums[i];
+                ++count1;
+            } else if (me1 == nums[i]) {
+                ++count1;
+            } else if (count2 == 0 && me1 != nums[i]) {
+                me2 = nums[i];
+                ++count2;
+            } else if (me2 == nums[i]) {
+                ++count2;
+            } else {
+                --count1;
+                --count2;
+            }
+        }
+
+        count1 = 0, count2 = 0;
+        for (auto i: nums) {
+            if (i == me1)
+                ++count1;
+            else if (i == me2)
+                ++count2;
+        }
+        if (count1 > (nums.size() / 3))
+            res.emplace_back(me1);
+        if (count2 > (nums.size() / 3))
+            res.emplace_back(me2);
+
+        return res;
+    }
+
+//    239. 滑动窗口最大值
+    vector<int> maxSlidingWindow(vector<int>& nums, int k) {
+        vector<int> res;
+        if (nums.empty() || k == 0)
+            return res;
+        deque<int > windows;
+        for (int i = 0; i < k; ++i) {
+            while (!windows.empty() && nums[i] >= nums[windows.back()])
+                windows.pop_back();
+            windows.emplace_back(i);
+        }
+        res.emplace_back(nums[windows.front()]);
+
+        for (int i = k; i < nums.size(); ++i) {
+            while (!windows.empty() && nums[i] >= nums[windows.back()])
+                windows.pop_back();
+            while (!windows.empty() && (i - windows.front()) >= k)
+                windows.pop_front();
+            windows.emplace_back(i);
+            res.emplace_back(nums[windows.front()]);
+        }
+        return res;
+    }
+    //01 beibao
+    int beibao(vector<int > &weights, vector<int > &values, int bag) {
+        vector<int > dp(bag + 1, 0);
+        for (int i = 0; i < weights.size(); ++i) {
+            for (int j = bag; j >= weights[i]; --j) {
+                dp[j] = max(dp[j], dp[j - weights[i]] + values[i]);
+            }
+        }
+        return dp[bag];
     }
 
 };
