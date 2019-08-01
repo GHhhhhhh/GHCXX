@@ -117,9 +117,6 @@ namespace gh{
         int _cap;
     };
 
-<<<<<<< HEAD
-
-=======
     class MinStack {
     public:
         /** initialize your data structure here. */
@@ -190,7 +187,7 @@ namespace gh{
         TreeNode* p;;
         stack<TreeNode* > s;
     };
->>>>>>> f09980716ce88ffd6ebd8a5ecb871570c7231b07
+
 }
 
 #endif //GH_CODE_GH_H

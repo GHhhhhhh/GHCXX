@@ -9,23 +9,57 @@
 #include <unordered_map>
 #include "ghlib/gh.h"
 #include "SwordToOffer/Interview.h"
+#include "EchoServer.h"
+#include <muduo/base/Logging.h>
+#include <muduo/net/EventLoop.h>
+#include <unp.h>
+
 using namespace std;
 using namespace swordToOffer;
 
-int beibao(vector<int > &weights, vector<int > &values, int bag) {
-    vector<int > dp(bag + 1, 0);
-    for (int i = 0; i < weights.size(); ++i) {
-        for (int j = bag; j >= weights[i]; --j) {
-            dp[j] = max(dp[j], dp[j - weights[i]] + values[i]);
+
+const char *g_file = NULL;
+string readFile(const char* filename) {
+    string content;
+    FILE* fp = ::fopen(filename, "rb");
+    if (fp)
+    {
+        // inefficient!!!
+        const int kBufSize = 1024*1024;
+        char iobuf[kBufSize];
+        ::setbuffer(fp, iobuf, sizeof iobuf);
+
+        char buf[kBufSize];
+        size_t nread = 0;
+        while ( (nread = ::fread(buf, 1, sizeof buf, fp)) > 0)
+        {
+            content.append(buf, nread);
         }
+        ::fclose(fp);
     }
-    return dp[bag];
+    return content;
+}
+void onConnection(const muduo::net::TcpConnectionPtr& conn) {
+    LOG_INFO << "EchoServer - " << conn->peerAddress().toIpPort() << " -> " <<conn->localAddress().toIpPort()
+              << " is " <<(conn->connected() ? "UP" : "DOWN");
+    if (conn->connected()) {
+        LOG_INFO<< "fileServer - Sending file "<<g_file<<" to "<<conn->peerAddress().toIpPort();
+        string fileContent = readFile(g_file);
+        conn->send(fileContent);
+        conn->shutdown();
+        LOG_INFO<<"FileServer - done";
+    }
 }
 int main(int argc, char* argv[], char** envp) {
-//    gh::GHsingle *gHsingle = gh::GHsingle::getInstance();
-    vector<int> v{0, 8, 10, 6, 3, 7, 2};  //价值
-    vector<int> w{0, 4, 6, 2, 2, 5, 1};
-    gh::print(beibao(w, v, 12));
+    if (argc > 1) {
+        g_file = argv[1];
+        muduo::net::EventLoop loop;
+        muduo::net::InetAddress listenAddr(2021);
+        muduo::net::TcpServer server(&loop, listenAddr, "FileServer");
+        server.setConnectionCallback(onConnection);
+        server.start();
+        loop.loop();
+    }
 }
 
 //889##24##7##7## 89##2##
