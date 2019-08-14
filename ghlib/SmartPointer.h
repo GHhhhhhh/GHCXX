@@ -38,7 +38,7 @@ public:
 
         if (this->_ptr) {
             --(*this->_count);
-            if (this->_count == 0) {
+            if (*this->_count == 0) {
                 delete this->_ptr;
                 delete this->_count;
             }

@@ -6,7 +6,7 @@
 #define GH_CODE_GH_H
 
 #include <iostream>
-#include <sys/time.h>
+#include <ctime>
 #include <fstream>
 #include <vector>
 #include <list>
